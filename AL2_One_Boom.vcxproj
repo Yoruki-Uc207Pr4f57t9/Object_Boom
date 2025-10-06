@@ -61,7 +61,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>%KAMATA_ENGINE%\Adapter;%KAMATA_ENGINE%\External\imgui;%KAMATA_ENGINE%\External\KamataEngine\include;%KAMATA_ENGINE%\External\DirectXTex\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;%KAMATA_ENGINE%\Adapter;%KAMATA_ENGINE%\External\imgui;%KAMATA_ENGINE%\External\KamataEngine\include;%KAMATA_ENGINE%\External\DirectXTex\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
       <TreatWarningAsError>true</TreatWarningAsError>
