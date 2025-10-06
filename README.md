@@ -17,8 +17,8 @@
 ![](./Doc/Images/boom2.jpg)
 ![](./Doc/Images/boom3.jpg)
 #### 音
-##### 爆発音
-![Audio](./Doc/Audio/countdown.wav)
+##### 爆発音_1
+[countdown.wav](./Doc/Audio/countdown.wav)
 
 ### 素材処理
 #### 画像編集ソフト
