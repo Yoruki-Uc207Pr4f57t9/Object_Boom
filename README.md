@@ -10,29 +10,34 @@
  - パスワードは状況によって変化する場合もあります。
 
 ### 素材
-#### 時限爆弾
+#### 画像
+##### 時限爆弾
 ![](./Doc/Images/boom0.png)
 ![](./Doc/Images/boom1.jpg)
 ![](./Doc/Images/boom2.jpg)
 ![](./Doc/Images/boom3.jpg)
+#### 音
+##### 爆発音
+[爆発音 - 効果音ラボ](./Doc/Audio/countdown.wav)
 
 ### 素材処理
-#### 時限爆弾
+#### 画像編集ソフト
+##### 時限爆弾
 ![](./Assets/Images/Boom[815x360].png)
 
     - 画像を ``Assets/Images`` フォルダに保存。
     - 画像の名前を ``Boom[815x360].png`` に変更。
     - 画像のサイズを ``815x360`` に変更。
 
-#### 数字
+##### 数字
 ![](./Assets/Images/Number[430x74][43x74_10].png)
 
     - 画像を ``Assets/Images`` フォルダに保存。
     - 画像の名前を ``Number[430x74][43x74_10].png`` に変更。
     - 画像のサイズを ``430x74`` に変更。
     - 画像を10等分し、1つの数字のサイズを ``43x74`` に変更。
-
-#### 区切符（くぎりふ）
+    
+##### 区切符（くぎりふ）
 ![](./Assets/Images/Separator[17x74].png)
 
     - 画像を ``Assets/Images`` フォルダに保存。
