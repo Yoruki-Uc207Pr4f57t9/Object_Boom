@@ -10,8 +10,8 @@
 
 ## 素材
 ### 爆弾
-![](Doc/boom0.png)
-![](Doc/boom1.png)
-![](Doc/boom2.png)
-![](Doc/boom3.png)
+![](./Doc/Images/boom0.png)
+![](./Doc/Images/boom1.png)
+![](./Doc/Images/boom2.png)
+![](./Doc/Images/boom3.png)
 
