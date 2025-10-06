@@ -18,14 +18,13 @@
 
 ## プログラムについて
 ### コンパイラの「インクルードパス」を設定
-
-``#include "EventBus.h"`` のような記述で、``include/`` 配下のヘッダーファイルを直接見つけられるようにする：
+``include/`` 配下のヘッダーファイルを直接見つけられるようにする：
 
  1. プロジェクトを右クリック → ``Properties``（プロパティ）。
  2. 左ペインで ``Configuration Properties → C/C++ → General`` を選択。
  3. Additional Include Directories に次を追加：
 ```
-$(ProjectDir)include;%(AdditionalIncludeDirectories)
+$(ProjectDir)include;
 ```
 
 ``$(ProjectDir)`` マクロを使うと、絶対パスのハードコードを避けられます。階層が深い場合は ``$(SolutionDir)libs\engine\include`` などに変更してください。
