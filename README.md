@@ -18,7 +18,7 @@
 ![](./Doc/Images/boom3.jpg)
 #### 音
 ##### 爆発音
-[爆発音 - 効果音ラボ](./Doc/Audio/countdown.wav)
+![爆発音 - 効果音ラボ](./Doc/Audio/countdown.wav)
 
 ### 素材処理
 #### 画像編集ソフト
