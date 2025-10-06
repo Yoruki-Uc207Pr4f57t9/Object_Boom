@@ -20,11 +20,29 @@
     <Filter Include="src">
       <UniqueIdentifier>{f8f9a6de-c0a0-4bb7-99c2-5a352dc6d78a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\Core">
+      <UniqueIdentifier>{f1ed71b6-c158-4338-9938-7fe798be32c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Component">
+      <UniqueIdentifier>{3d4d1147-b45a-4681-947b-0a225d216139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Core">
+      <UniqueIdentifier>{ccf86ecc-5866-4c56-8698-c85cb4967184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Game">
+      <UniqueIdentifier>{2aad7a42-5ef5-4a95-854e-e2b1fd6f42b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{0e836878-7d9a-4ace-9978-1a00b7821da1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="%KAMATA_ENGINE%\Adapter\Novice.cpp">
       <Filter>KamataEngine\Adapter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\ResourceManager.cpp">
+      <Filter>src\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +126,18 @@
     </ClInclude>
     <ClInclude Include="%KAMATA_ENGINE%\DirectXGame\2d\ImGuiManager.h">
       <Filter>KamataEngine\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Timers.hpp">
+      <Filter>include\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Core\ResourceManager.hpp">
+      <Filter>include\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Core\Config.hpp">
+      <Filter>include\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Core\Math.hpp">
+      <Filter>include\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

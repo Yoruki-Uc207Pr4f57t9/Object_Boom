@@ -110,6 +110,7 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
   <ItemGroup>
     <ClCompile Include="%KAMATA_ENGINE%\Adapter\Novice.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\Core\ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DirectXGame\3d\Camera.h" />
@@ -139,6 +140,10 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="%KAMATA_ENGINE%\DirectXGame\input\Input.h" />
     <ClInclude Include="%KAMATA_ENGINE%\DirectXGame\scene\GameScene.h" />
     <ClInclude Include="%KAMATA_ENGINE%\Adapter\Novice.h" />
+    <ClInclude Include="include\Component\Timers.hpp" />
+    <ClInclude Include="include\Core\Config.hpp" />
+    <ClInclude Include="include\Core\Math.hpp" />
+    <ClInclude Include="include\Core\ResourceManager.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
