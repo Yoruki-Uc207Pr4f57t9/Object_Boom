@@ -11,8 +11,8 @@
 namespace Component {
     class RangeClock {
     public:
-        // startSec/endSec: 顯示的時間範圍（秒）
-        // durationSec: 實際跑完所需時間（秒）
+        // startSec/endSec: 表示時間範囲（秒）
+        // durationSec: 実際に完了するまでにかかる時間（秒）
         explicit RangeClock(Core::Vector2 posi = {0,0}, float startSec = 0.f, float endSec = 0.f, float durationSec = 1.f, bool paused = true, 
             std::vector<Core::AnimeHandle> handles = {}, Core::AnimeHandle amHandle = {}, Core::AnimeHandle splitHandle = {})
             : position_(posi), startSec_(startSec), endSec_(endSec), durationSec_(max(0.0001f, durationSec)),
@@ -58,7 +58,7 @@ namespace Component {
             if (elapsedSec_ < 0.f)          elapsedSec_ = 0.f;
         }
 
-        // 0..1 的進度（clamp）
+        // 0..1 の進行度（Clamp）
         float GetRatio() const {
             float t = elapsedSec_ / durationSec_;
             if (t < 0.f) t = 0.f;
@@ -66,15 +66,15 @@ namespace Component {
             return t;
         }
 
-        // 映射後的「顯示秒數」：從 startSec_ 線性插值到 endSec_
+        // マッピング後の「表示秒数」：startSec_ から endSec_ まで線形補間
         float GetMappedTimeSec() const {
             float t = GetRatio();
-            return startSec_ + (endSec_ - startSec_) * t; // 可正可反
+            return startSec_ + (endSec_ - startSec_) * t; // 正方向・逆方向の両方に対応
         }
 
         bool IsFinished() const { return elapsedSec_ >= durationSec_; }
 
-        // 若你用「幀」：提供個便捷更新
+        // フレーム単位で更新できる簡易メソッドあり
         void UpdateByFrames(int frames, float fps) {
             Update(frames / max(0.0001f, fps));
         }
@@ -83,7 +83,7 @@ namespace Component {
             return static_cast<int>(GetMappedTimeSec());
         }
 
-        // 以 MM:SS 格式輸出（向下取整）
+        // MM:SS 形式で出力（切り捨て）
         void Render() const {
             int total = static_cast<int>(GetMappedTimeSec());
             if (total < 0) {
@@ -161,10 +161,10 @@ namespace Component {
 
 
     private:
-        float startSec_;     // 顯示起點（秒）
-        float endSec_;       // 顯示終點（秒）
-        float durationSec_;  // 實際跑完需要的秒數
-        float elapsedSec_;   // 已經跑了幾秒（對 duration 計）
+        float startSec_;     // 表示開始点（秒）
+        float endSec_;       // 表示終了点（秒）
+        float durationSec_;  // 実際に完了するまでに必要な秒数
+        float elapsedSec_;   // 経過時間（duration に対して）
         bool  paused_;
 
         Core::AnimeHandle amHandle_;
