@@ -4,7 +4,7 @@
 
 namespace Game {
     struct KeyTimestamp {
-        int up = 0, down = 0, left = 0, right = 0, aBtn = 0, bBtn = 0, xBtn = 0, yBtn = 0, enterBtn = 0, escBtn = 0;
+        int up = 0, down = 0, left = 0, right = 0, aBtn = 0, bBtn = 0, xBtn = 0, yBtn = 0, enterBtn = 0, escBtn = 0, spaceBtn = 0;
     };
 
     class KeyBoard {

@@ -23,6 +23,7 @@ namespace Game {
         updateTimestamp(DIK_J, keyBoard.ktt.aBtn);
         updateTimestamp(DIK_K, keyBoard.ktt.bBtn);
         updateTimestamp(DIK_RETURN, keyBoard.ktt.enterBtn);
+        updateTimestamp(DIK_SPACE, keyBoard.ktt.spaceBtn);
         updateTimestamp(DIK_ESCAPE, keyBoard.ktt.escBtn);
     }
 
