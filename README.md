@@ -44,11 +44,38 @@
     - 画像の名前を ``Separator[17x74].png`` に変更。
     - 画像のサイズを ``17x74`` に変更。
     - 爆弾中の座標は ``(x=465, y=165)`` に配置。
-    
-
-
 
 ## プログラムについて
+### 開発環境
+ - Visual Studio 2022
+
+### 環境変数
+
+#### 環境変数
+![環境変数](./Doc/Images/EnvEdit_01.png)
+
+他の方法：
+ 1. **Windowsキー** を押し、「環境変数」と入力 → **「システム環境変数の編集」** をクリック。
+ 2. 「システムのプロパティ」ウィンドウが開くので、下部の **「環境変数(N)...」** ボタンをクリック。
+
+#### 環境変数 ``KAMATA_ENGINE`` を設定
+![環境変数](./Doc/Images/EnvEdit_02.png)
+
+![環境変数](./Doc/Images/EnvEdit_03.png)
+ 
+  - **KAMATA_ENGINE** : ``<KamataEngineのパス>``
+ - **<KamataEngineのパス>** : ``C:\path\to\KamataEngine`` のように、**KamataEngine** フォルダの絶対パスを指定。
+
+#### テストする
+**PowerShell**の方は：
+```powershell
+echo $env:KAMATA_ENGINE
+```
+**コマンドプロンプト**の方は：
+```cmd
+echo %KAMATA_ENGINE%
+```
+パスが表示されれば成功です。
 ### コンパイラの「インクルードパス」を設定
 ``include/`` 配下のヘッダーファイルを直接見つけられるようにする：
 
