@@ -44,6 +44,9 @@
     <ClCompile Include="src\Core\ResourceManager.cpp">
       <Filter>src\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Input.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="%KAMATA_ENGINE%\DirectXGame\audio\Audio.h">
@@ -138,6 +141,15 @@
     </ClInclude>
     <ClInclude Include="include\Core\Math.hpp">
       <Filter>include\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game\GameManager.hpp">
+      <Filter>include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game\GameSession.hpp">
+      <Filter>include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game\Input.hpp">
+      <Filter>include\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
