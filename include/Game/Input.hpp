@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Core/ResourceManager.hpp"
+#include "Game/GameSession.hpp"
 #include "Core/Math.hpp"
 
 namespace Game {
@@ -9,7 +10,7 @@ namespace Game {
 
     class KeyBoard {
     public:
-        void PollKeyboard(KeyBoard& kb, Game::GameSetting setting);
+        void PollKeyboard(KeyBoard& kb, GameSetting setting);
 
     public:
         char keys[256]{ 0 };

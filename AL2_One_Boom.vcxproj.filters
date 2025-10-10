@@ -35,6 +35,9 @@
     <Filter Include="src\Game">
       <UniqueIdentifier>{0e836878-7d9a-4ace-9978-1a00b7821da1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\Entity">
+      <UniqueIdentifier>{a08ed6d5-fa10-411e-8602-4cc006035909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -45,6 +48,12 @@
       <Filter>src\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Input.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\BoomManager.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameManager.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
   </ItemGroup>
@@ -150,6 +159,21 @@
     </ClInclude>
     <ClInclude Include="include\Game\Input.hpp">
       <Filter>include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Button.hpp">
+      <Filter>include\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Image.hpp">
+      <Filter>include\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Text.hpp">
+      <Filter>include\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game\BoomManager.hpp">
+      <Filter>include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Entity\Entity.hpp">
+      <Filter>include\Entity</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
