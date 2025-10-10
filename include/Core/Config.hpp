@@ -8,9 +8,6 @@ namespace Core {
 
     constexpr int INPUT_LOCK_FRAME = 30;
 
-    
-
-
     enum MouseCursor {
         HIDE_MOUSE = 0,
         SHOW_MOUSE = 1,
@@ -21,7 +18,5 @@ namespace Core {
         RIGHT_BUTTON = 1,
         MIDDLE_BUTTON = 2,
     };
-
-
 
 } // namespace Core

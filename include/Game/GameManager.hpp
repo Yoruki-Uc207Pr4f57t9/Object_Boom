@@ -4,7 +4,8 @@
 #include "Component/Image.hpp"
 #include "Core/ResourceManager.hpp"
 #include "Game/Input.hpp"
-#include "Game/BoomManager.hpp"
+#include "Game/IBoomAction.hpp"
+#include "Game/ISecretBoardAction.hpp"
 #include "Game/GameSession.hpp"
 
 
@@ -14,17 +15,19 @@ namespace Game {
     class GameManager{
     public:
         explicit GameManager(Game::GameSession* session) : session_(session){
-            boomMgr_ = new Game::BoomManager(session_);
+            boomAct_ = new Game::IBoomAction(session_);
+            secretBoardAct_ = new Game::ISecretBoardAction(session_);
         }
+
         ~GameManager() {
-            delete boomMgr_;
+            delete boomAct_;
         }
         void Reset() {
             prevMouseDown_ = false;
             session_->SetGameSetting(Game::GameSetting());
             session_->GetMouse()->Close();
             session_->SetKeyBoard(Game::KeyBoard());
-            boomMgr_->Shutdown();
+            boomAct_->Shutdown();
         }
         void InitResources(Core::ResourceManager* rm);
         void InitManager() ;
@@ -35,7 +38,8 @@ namespace Game {
 
     private:
         Game::GameSession* session_{ nullptr };
-        Game::BoomManager* boomMgr_{ nullptr };
+        Game::IBoomAction* boomAct_{ nullptr };
+        Game::ISecretBoardAction* secretBoardAct_{ nullptr };
         bool prevMouseDown_{ false };
 
         int deathWaitFrame_{ 0 };

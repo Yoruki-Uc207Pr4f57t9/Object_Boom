@@ -5,11 +5,10 @@
 
 namespace Game {
 
-    class BoomManager {
+    class IBoomAction {
     public:
-        explicit BoomManager(Game::GameSession* session) : session_(session) {}
+        explicit IBoomAction(Game::GameSession* session) : session_(session) {}
         void Init();
-        void Input(KeyBoard& kb);
         void Update();
         void Render();
         void Shutdown();
@@ -18,7 +17,7 @@ namespace Game {
 
     private:
         Game::GameSession* session_{ nullptr };
-        int fireCooldown_{ 0 };
+        int effectCooldown_{ 0 };
         Boom boom_;
 
     };

@@ -111,9 +111,10 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="%KAMATA_ENGINE%\Adapter\Novice.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\Core\ResourceManager.cpp" />
-    <ClCompile Include="src\Game\BoomManager.cpp" />
+    <ClCompile Include="src\Game\BoomActionImpl.cpp" />
     <ClCompile Include="src\Game\GameManager.cpp" />
     <ClCompile Include="src\Game\Input.cpp" />
+    <ClCompile Include="src\Game\SecretBoardActionImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DirectXGame\3d\Camera.h" />
@@ -155,7 +156,8 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="include\Game\GameSession.hpp" />
     <ClInclude Include="include\Game\GameSetting.hpp" />
     <ClInclude Include="include\Game\Input.hpp" />
-    <ClInclude Include="include\Game\BoomManager.hpp" />
+    <ClInclude Include="include\Game\IBoomAction.hpp" />
+    <ClInclude Include="include\Game\ISecretBoardAction.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
