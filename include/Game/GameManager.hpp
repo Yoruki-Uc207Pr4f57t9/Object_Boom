@@ -3,9 +3,10 @@
 #include "Component/Text.hpp"
 #include "Component/Image.hpp"
 #include "Core/ResourceManager.hpp"
-#include "Game/GameSession.hpp"
-#include "Game/BoomManager.hpp"
 #include "Game/Input.hpp"
+#include "Game/BoomManager.hpp"
+#include "Game/GameSession.hpp"
+
 
 
 namespace Game {
@@ -20,9 +21,9 @@ namespace Game {
         }
         void Reset() {
             prevMouseDown_ = false;
-            session_->setting = Game::GameSetting();
-            session_->mouse.Close();
-            session_->keyboard = Game::KeyBoard();
+            session_->SetGameSetting(Game::GameSetting());
+            session_->GetMouse()->Close();
+            session_->SetKeyBoard(Game::KeyBoard());
             boomMgr_->Shutdown();
         }
         void InitResources(Core::ResourceManager* rm);

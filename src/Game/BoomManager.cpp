@@ -6,7 +6,8 @@ namespace Game {
     void BoomManager::Init() {
 
     }
-    void BoomManager::Input(Game::KeyBoard& kb) {
+    void BoomManager::Input(KeyBoard& kb) {
+        kb;
 
     }
     void BoomManager::Update() {

@@ -175,5 +175,8 @@
     <ClInclude Include="include\Entity\Entity.hpp">
       <Filter>include\Entity</Filter>
     </ClInclude>
+    <ClInclude Include="include\Game\GameSetting.hpp">
+      <Filter>include\Game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

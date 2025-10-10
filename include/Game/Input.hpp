@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Core/ResourceManager.hpp"
-#include "Game/GameSession.hpp"
 #include "Core/Math.hpp"
+#include "Game/GameSetting.hpp"
 
 namespace Game {
     struct KeyTimestamp {

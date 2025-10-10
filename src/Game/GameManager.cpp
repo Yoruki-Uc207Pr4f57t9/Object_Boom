@@ -9,9 +9,13 @@ namespace Game {
 
     }
     void GameManager::OnInput(Game::KeyBoard& kb, Game::Mouse& mo, Game::GameSetting& setting) {
+        kb;
+        mo;
+        setting;
 
     }
     void GameManager::Update(Game::GameSetting& setting) {
+        setting;
 
     }
     void GameManager::Render() {

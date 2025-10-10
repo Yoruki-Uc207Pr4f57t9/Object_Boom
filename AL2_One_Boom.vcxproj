@@ -153,6 +153,7 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="include\Entity\Entity.hpp" />
     <ClInclude Include="include\Game\GameManager.hpp" />
     <ClInclude Include="include\Game\GameSession.hpp" />
+    <ClInclude Include="include\Game\GameSetting.hpp" />
     <ClInclude Include="include\Game\Input.hpp" />
     <ClInclude Include="include\Game\BoomManager.hpp" />
   </ItemGroup>

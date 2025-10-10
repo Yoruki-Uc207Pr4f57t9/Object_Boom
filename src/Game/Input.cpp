@@ -5,11 +5,11 @@
 
 namespace Game {
 
-    void RefreshInputDirTimestamp(KeyBoard& keyBoard, GameSetting setting) {
+    void RefreshInputDirTimestamp(KeyBoard& keyBoard, Game::GameSetting setting) {
         // [ラムダ式]汎用関数としてキー入力のタイムスタンプ更新をまとめる   
         auto updateTimestamp = [&keyBoard, &setting](int key, int& inputKey) {
             if (keyBoard.keys[key] && inputKey == 0) {
-                inputKey = setting.currentFrame;
+                inputKey = setting.GetCurrentFrame();
             } else if (!keyBoard.keys[key]) {
                 inputKey = 0;
             }

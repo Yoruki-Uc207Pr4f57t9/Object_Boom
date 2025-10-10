@@ -9,7 +9,7 @@ namespace Game {
     public:
         explicit BoomManager(Game::GameSession* session) : session_(session) {}
         void Init();
-        void Input(Game::KeyBoard& kb);
+        void Input(KeyBoard& kb);
         void Update();
         void Render();
         void Shutdown();
