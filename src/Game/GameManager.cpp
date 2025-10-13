@@ -13,16 +13,18 @@ namespace Game {
     }
 
     // 入力処理
-    void GameManager::OnInput(Game::KeyBoard& kb, Game::Mouse& mo, Game::GameSetting& setting) {
-        kb;
-        mo;
-        setting;
+    void GameManager::OnInput() {
+        
 
     }
 
     // 更新処理
-    void GameManager::Update(Game::GameSetting& setting) {
-        setting;
+    void GameManager::Update() {
+
+        session_->GetMouse()->Update();
+        if (session_->GetCurrentState() != Core::SceneState::GAMEPLAY) return;
+
+
 
     }
 

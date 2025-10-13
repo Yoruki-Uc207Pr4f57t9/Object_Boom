@@ -33,6 +33,10 @@ namespace Game {
         RefreshInputDirTimestamp(kb, setting);
     }
 
+    void KeyBoard::Update() {
+        // ここに必要な更新処理を追加できます
+    }
+
     void Mouse::Init(Core::ResourceManager* rm) {
         rm;
         //cursorHandle_ = rm->mainSceneBGHandle; // ここは適切なカーソル画像に変更する必要があります

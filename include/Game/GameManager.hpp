@@ -31,8 +31,8 @@ namespace Game {
         }
         void InitResources(Core::ResourceManager* rm);
         void InitManager() ;
-        void OnInput(Game::KeyBoard& kb, Game::Mouse& mo, Game::GameSetting& setting) ;
-        void Update(Game::GameSetting& setting) ;
+        void OnInput() ;
+        void Update() ;
         void Render() ;
         void Shutdown() ;
 
@@ -43,6 +43,8 @@ namespace Game {
         bool prevMouseDown_{ false };
 
         int deathWaitFrame_{ 0 };
+
+        
         
 
         // UI Components 

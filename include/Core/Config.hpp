@@ -2,8 +2,8 @@
 
 namespace Core {
 
-    constexpr int kWindowWidth = 1280;
-    constexpr int kWindowHeight = 768;
+    constexpr int kWindowWidth = 800;
+    constexpr int kWindowHeight = 800;
     constexpr char kWindowTitle[] = "One_Boom";
 
     constexpr int INPUT_LOCK_FRAME = 30;
@@ -17,6 +17,15 @@ namespace Core {
         LEFT_BUTTON = 0,
         RIGHT_BUTTON = 1,
         MIDDLE_BUTTON = 2,
+    };
+
+    // シーンの状態を表す列挙型
+    enum class SceneState {
+        MAIN,
+        GAMEPLAY,
+        PAUSE,
+        GAMEOVER_WIN,
+        GAMEOVER_LOSE,
     };
 
 } // namespace Core

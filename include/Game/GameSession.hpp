@@ -12,7 +12,11 @@ namespace Game {
             , setting_(setting)
             , mouse_(mouse)
             , keyboard_(keyboard)
+            , currentState_(Core::SceneState::MAIN)
         {}
+        Core::SceneState GetCurrentState() const { return currentState_; }
+        void SetCurrentState(Core::SceneState state) { currentState_ = state; }
+
         void SetMouse(Mouse mo) { mouse_ = mo; }
         Mouse* GetMouse() { return &mouse_; }
 
@@ -33,6 +37,7 @@ namespace Game {
         GameSetting                 setting_;
         Mouse                       mouse_;
         KeyBoard                    keyboard_;
+        Core::SceneState            currentState_;
     };
 
 } // namespace Game

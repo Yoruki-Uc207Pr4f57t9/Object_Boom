@@ -1,7 +1,8 @@
 ﻿#pragma once
-#include <vector>
+#include "Component/Timers.hpp"
 #include "Game/GameSession.hpp"
 #include "Entity/Entity.hpp"
+#include <vector>
 
 namespace Game {
 
@@ -19,6 +20,7 @@ namespace Game {
         Game::GameSession* session_{ nullptr };
         int effectCooldown_{ 0 };
         Boom boom_;
+        Component::RangeClock countdownTimer_;
 
     };
 }

@@ -11,6 +11,7 @@ namespace Game {
     class KeyBoard {
     public:
         void PollKeyboard(KeyBoard& kb, GameSetting setting);
+        void Update();
 
     public:
         char keys[256]{ 0 };
