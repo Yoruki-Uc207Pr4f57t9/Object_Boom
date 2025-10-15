@@ -1,9 +1,16 @@
 ﻿#include "Game/IBoomAction.hpp"
+#include <Novice.h>
 
 namespace Game {
 
     // 初期化
     void IBoomAction::Init() {
+        int boomWidth = (int)session_->GetResources()->BoomHandle().resource.size.x;
+        int boomHeight = (int)session_->GetResources()->BoomHandle().resource.size.y;
+        boom_.position = { (float)(Core::kWindowWidth / 2 - boomWidth / 2), (float)(Core::kWindowHeight / 2 - boomHeight) };
+        boom_.boomAnime_ = session_->GetResources()->BoomHandle();
+        boom_.isActive = true;
+       
         countdownTimer_.Init(
             { 0.f, 0.f }, 5 * 60 * 60, 60 * 60,
             Core::COUNT_TIME,
@@ -22,8 +29,10 @@ namespace Game {
             },
             session_->GetResources()->SeparatorHandle()
         );
-        countdownTimer_.Pause(false);
+        countdownTimer_.Pause(false);     
         countdownTimer_.CountDown(true);
+       
+        countdownTimer_.SetPosition({ boom_.position.x + 367, boom_.position.y + 166});
 
     }
 
@@ -35,8 +44,11 @@ namespace Game {
 
     // 描画
     void IBoomAction::Render() {
-        countdownTimer_.Render();
+        
+        Novice::DrawSpriteRect((int)boom_.position.x, (int)boom_.position.y, 0, 0, (int)boom_.boomAnime_.resource.size.x, (int)boom_.boomAnime_.resource.size.y,
+            boom_.boomAnime_.resource.textureHandle, 1, 1, 0, WHITE);
 
+        countdownTimer_.Render();
     }
 
     // 終了

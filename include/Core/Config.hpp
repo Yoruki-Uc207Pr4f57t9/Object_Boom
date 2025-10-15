@@ -2,8 +2,8 @@
 
 namespace Core {
 
-    constexpr int kWindowWidth = 800;
-    constexpr int kWindowHeight = 800;
+    constexpr int kWindowWidth = 1024;
+    constexpr int kWindowHeight = 768;
     constexpr char kWindowTitle[] = "One_Boom";
 
     constexpr int INPUT_LOCK_FRAME = 30;

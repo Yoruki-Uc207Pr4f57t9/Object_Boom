@@ -8,8 +8,6 @@
 #include "Game/ISecretBoardAction.hpp"
 #include "Game/GameSession.hpp"
 
-
-
 namespace Game {
 
     class GameManager{
@@ -29,7 +27,7 @@ namespace Game {
             session_->SetKeyBoard(Game::KeyBoard());
             boomAct_->Shutdown();
         }
-        void InitResources(Core::ResourceManager* rm);
+        void InitResources();
         void InitManager() ;
         void OnInput() ;
         void Update() ;
@@ -43,8 +41,6 @@ namespace Game {
         bool prevMouseDown_{ false };
 
         int deathWaitFrame_{ 0 };
-
-        
         
 
         // UI Components 

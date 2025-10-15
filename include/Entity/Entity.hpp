@@ -6,16 +6,15 @@ namespace Game {
     struct Boom {
         Core::Vector2 position;
 
-        Core::AnimeHandle bossAnime_;
-        Core::AnimeHandle bossDeathAnime_;
+        Core::AnimeHandle boomAnime_;
+        Core::AnimeHandle boomDeathAnime_;
         bool isActive;
     };
 
     struct SecretBoard {
         Core::Vector2 position;
 
-        Core::AnimeHandle playerAnime_;
-        Core::AnimeHandle playerDeathAnime_;
+        Core::AnimeHandle secretBoardAnime_;
         bool isActive;
     };
 

@@ -18,10 +18,9 @@ namespace Game {
 
     private:
         Game::GameSession* session_{ nullptr };
-        int effectCooldown_{ 0 };
+        int effectCooldown_{ 0 };   //邪魔するもの時間
         Boom boom_;
         Component::RangeClock countdownTimer_;
-
     };
 }
 
