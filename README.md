@@ -16,8 +16,8 @@
 ![](./Doc/Images/boom1.jpg)
 ![](./Doc/Images/boom2.jpg)
 ![](./Doc/Images/boom3.jpg)
-![](./Doc/Images/clear.jpg)
-![](./Doc/Images/soruce_clear.jpg)
+![](./Doc/Images/clear.png)
+![](./Doc/Images/soruce_clear.png)
 #### 音
 ##### 爆発音_1
 [countdown.wav](./Doc/Audio/countdown.wav)
