@@ -1,4 +1,5 @@
 ﻿#include "Game/ISecretBoardAction.hpp"
+#include <Novice.h>
 
 namespace Game {
 
@@ -20,7 +21,9 @@ namespace Game {
 
     // 描画
     void ISecretBoardAction::Render() {
-
+        int size = 256;
+        Novice::DrawBox((int)(Core::kWindowWidth / 2 - size / 2), (int)(Core::kWindowHeight / 2 + size / 4 ), size, size, 0 , RED, kFillModeWireFrame);
+        Novice::DrawEllipse(Core::kWindowWidth / 2, (int)(Core::kWindowHeight / 2 + (size - size / 4)), size / 2, size / 2, 0, RED, kFillModeWireFrame);
     }
 
     // 終了

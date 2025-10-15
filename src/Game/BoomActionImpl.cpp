@@ -12,7 +12,7 @@ namespace Game {
         boom_.isActive = true;
        
         countdownTimer_.Init(
-            { 0.f, 0.f }, 5 * 60 * 60, 60 * 60,
+            { 0.f, 0.f }, 5 * 60 * 60, 0,
             Core::COUNT_TIME,
             true,
             {
