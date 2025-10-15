@@ -9,6 +9,7 @@ namespace Game {
 
     // マネージャーの初期化
     void GameManager::InitManager() {
+        boomAct_->Init();
 
     }
 
@@ -24,12 +25,15 @@ namespace Game {
         session_->GetMouse()->Update();
         if (session_->GetCurrentState() != Core::SceneState::GAMEPLAY) return;
 
+        boomAct_->Update();
+
 
 
     }
 
     // 描画処理
     void GameManager::Render() {
+        boomAct_->Render();
 
     }
 

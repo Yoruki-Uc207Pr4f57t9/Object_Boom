@@ -1,5 +1,8 @@
 ﻿#include <Novice.h>
 #include "Core/Config.hpp"
+// TEST
+#include "Component/Timers.hpp"
+#include "Game/GameSession.hpp"
 
 
 
@@ -8,6 +11,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
     // ライブラリの初期化
     Novice::Initialize(Core::kWindowTitle, Core::kWindowWidth, Core::kWindowHeight);
+
+    Game::GameSession session;
+    session.GetResources()->LoadAll();
+    
 
     // キー入力結果を受け取る箱
     char keys[256] = {0};
@@ -19,6 +26,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
         Novice::BeginFrame();
 
         
+
         // キー入力を受け取る
         memcpy(preKeys, keys, 256);
         Novice::GetHitKeyStateAll(keys);

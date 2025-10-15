@@ -7,6 +7,13 @@ namespace Game {
 
     class GameSession {
     public: 
+        explicit GameSession()
+            : resources_()
+            , setting_()
+            , mouse_()
+            , keyboard_()
+            , currentState_(Core::SceneState::MAIN) {
+        }
         explicit GameSession(Core::ResourceManager resources, GameSetting setting, Mouse mouse, KeyBoard keyboard)
             : resources_(resources)
             , setting_(setting)

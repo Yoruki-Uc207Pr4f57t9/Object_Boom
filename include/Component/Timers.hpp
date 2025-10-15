@@ -13,20 +13,39 @@ namespace Component {
     public:
         // startSec/endSec: 表示時間範囲（秒）
         // durationSec: 実際に完了するまでにかかる時間（秒）
-        explicit RangeClock(Core::Vector2 posi = {0,0}, float startSec = 0.f, float endSec = 0.f, float durationSec = 1.f, bool paused = true, 
-            std::vector<Core::AnimeHandle> handles = {}, Core::AnimeHandle amHandle = {}, Core::AnimeHandle splitHandle = {})
-            : position_(posi), startSec_(startSec), endSec_(endSec), durationSec_(max(0.0001f, durationSec)),
-            elapsedSec_(0.f), paused_(paused), digitHandle_(handles), splitHandle_(splitHandle){
-        }
+        explicit RangeClock(
+            Core::Vector2 posi = { 0, 0 }, 
+            float startSec = 0.f, 
+            float endSec = 0.f,
+            float durationSec = 1.f,
+            bool paused = true,
+            bool isCountDown = true,
+            std::vector<Core::AnimeHandle> handles = {}, 
+            Core::AnimeHandle splitHandle = {}
+        ) : position_(posi),
+            startSec_(startSec), 
+            endSec_(endSec), 
+            durationSec_(max(0.0001f, durationSec)),
+            elapsedSec_(0.f), 
+            paused_(paused), 
+            isCountDown_(isCountDown), 
+            digitHandle_(handles), 
+            splitHandle_(splitHandle) {}
 
         void Init(Core::Vector2 posi, float startSec, float endSec, float durationSec,
+            bool isCountDown,
             std::vector<Core::AnimeHandle> handles, Core::AnimeHandle splitHandle) {
             splitHandle_ = splitHandle;
             position_ = posi;
             startSec_ = startSec;
             endSec_ = endSec;
             durationSec_ = max(0.0001f, durationSec);
-            elapsedSec_ = 0.f;
+            isCountDown_ = isCountDown;
+            if (isCountDown_) {
+                elapsedSec_ = startSec;
+            } else {
+                elapsedSec_ = 0.f;
+            }
             digitHandle_ = handles;
         }
         void SetSplitHandle(Core::AnimeHandle handle) { splitHandle_ = handle; }
@@ -44,16 +63,31 @@ namespace Component {
             startSec_ = startSec;
             endSec_ = endSec;
             durationSec_ = max(0.0001f, durationSec);
-            elapsedSec_ = 0.f;
+            if (isCountDown_) {
+                elapsedSec_ = startSec;
+            } else {
+                elapsedSec_ = 0.f;
+            }
         }   
 
         void Pause(bool p) { paused_ = p; }
+        void CountDown(bool c) {
+            isCountDown_ = c;
+        }
 
         void Update(float dt) {
             if (paused_) return;
-            elapsedSec_ += dt;
-            if (elapsedSec_ > durationSec_) elapsedSec_ = durationSec_;
-            if (elapsedSec_ < 0.f)          elapsedSec_ = 0.f;
+            if (isCountDown_) {
+                elapsedSec_ -= dt;
+            } else {
+                elapsedSec_ += dt;
+            }
+            if (elapsedSec_ > durationSec_) {
+                elapsedSec_ = durationSec_;
+            }
+            if (elapsedSec_ < 0.f) {
+                elapsedSec_ = 0.f;
+            }
         }
 
         // 0..1 の進行度（Clamp）
@@ -67,10 +101,20 @@ namespace Component {
         // マッピング後の「表示秒数」：startSec_ から endSec_ まで線形補間
         float GetMappedTimeSec() const {
             float t = GetRatio();
-            return startSec_ + (endSec_ - startSec_) * t; // 正方向・逆方向の両方に対応
+            if (isCountDown_) {
+                return (startSec_ - endSec_) * t;
+            } else {
+                return startSec_ + (endSec_ - startSec_) * t; // 正方向・逆方向の両方に対応
+            }
         }
 
-        bool IsFinished() const { return elapsedSec_ >= durationSec_; }
+        bool IsFinished() const { 
+            if (isCountDown_) {
+                return elapsedSec_ >= durationSec_;
+            } else {
+                return elapsedSec_ <= durationSec_;
+            }
+        }
 
         // フレーム単位で更新できる簡易メソッドあり
         void UpdateByFrames(int frames, float fps) {
@@ -144,6 +188,7 @@ namespace Component {
         float durationSec_;  // 実際に完了するまでに必要な秒数
         float elapsedSec_;   // 経過時間（duration に対して）
         bool  paused_;
+        bool  isCountDown_;
 
       
         Core::AnimeHandle splitHandle_;

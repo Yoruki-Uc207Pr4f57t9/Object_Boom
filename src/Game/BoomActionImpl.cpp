@@ -5,7 +5,9 @@ namespace Game {
     // 初期化
     void IBoomAction::Init() {
         countdownTimer_.Init(
-            { 0.f, 0.f }, 60 * 60, 4 * 60 * 60,
+            { 0.f, 0.f }, 5 * 60 * 60, 60 * 60,
+            Core::COUNT_TIME,
+            true,
             {
                 session_->GetResources()->NumberHandle(0),
                 session_->GetResources()->NumberHandle(1),
@@ -20,6 +22,8 @@ namespace Game {
             },
             session_->GetResources()->SeparatorHandle()
         );
+        countdownTimer_.Pause(false);
+        countdownTimer_.CountDown(true);
 
     }
 
