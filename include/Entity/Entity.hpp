@@ -4,13 +4,6 @@
 
 namespace Game {
 
-    struct Point {
-        Core::Vector2 leftTop;
-        Core::Vector2 rightTop;
-        Core::Vector2 leftBottom;
-        Core::Vector2 rightBottom;
-    };
-
     struct Boom {
         Core::Vector2 position;
 
@@ -29,9 +22,10 @@ namespace Game {
         Core::AudioHandle timeSound_;
         float animeScale = 1;
 
-        int timeValue = 0;
-        Point localP;
-        Point virtualP;
+        float timeValue = 0;
+        Core::Point localP;
+        Core::Point virtualP;
+        Core::Matrix2x2 rotateMatrix;
 
         bool isActive;
     };

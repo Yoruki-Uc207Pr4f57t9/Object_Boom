@@ -21,7 +21,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     while (Novice::ProcessMessage() == 0 && !session.GetGameSetting()->IsGameOver()) {
         // フレームの開始
         Novice::BeginFrame();
-        session.GetKeyBoard()->PollKeyboard(*session.GetKeyBoard(), *session.GetGameSetting());
 
         gameMgr->OnInput();
 
@@ -29,6 +28,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
         gameMgr->Render();
 
+        session.GetGameSetting()->IncrementFrame();
         // フレームの終了
         Novice::EndFrame();
     }

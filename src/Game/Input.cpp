@@ -13,7 +13,7 @@ namespace Game {
             } else if (!keyBoard.keys[key]) {
                 inputKey = 0;
             }
-            };
+        };
 
         // それぞれの方向キーに対して、汎用関数を呼び出す
         updateTimestamp(DIK_W, keyBoard.ktt.up);
@@ -25,6 +25,8 @@ namespace Game {
         updateTimestamp(DIK_RETURN, keyBoard.ktt.enterBtn);
         updateTimestamp(DIK_SPACE, keyBoard.ktt.spaceBtn);
         updateTimestamp(DIK_ESCAPE, keyBoard.ktt.escBtn);
+
+        
     }
 
     void KeyBoard::PollKeyboard(KeyBoard& kb, GameSetting setting) {

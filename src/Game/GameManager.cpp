@@ -23,7 +23,10 @@ namespace Game {
 
     // 入力処理
     void GameManager::OnInput() {
-        secretBoardAct_->Update();
+        session_->GetKeyBoard()->PollKeyboard(*session_->GetKeyBoard(), *session_->GetGameSetting());
+
+        
+        secretBoardAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
     }
 
     // 更新処理

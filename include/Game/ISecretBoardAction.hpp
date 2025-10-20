@@ -4,6 +4,7 @@
 #include "Entity/Entity.hpp"
 
 namespace Game {
+   
     
     class ISecretBoardAction {
     public:
@@ -20,6 +21,7 @@ namespace Game {
         Game::GameSession* session_{ nullptr };
         int pushCooldown_{ 0 };
         SecretBoard secretBoard_;
+
 
     };
 }
