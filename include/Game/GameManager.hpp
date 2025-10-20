@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "Core/Math.hpp"
 #include "Component/Button.hpp"
 #include "Component/Text.hpp"
 #include "Component/Image.hpp"
@@ -9,6 +10,11 @@
 #include "Game/GameSession.hpp"
 
 namespace Game {
+
+    struct GameArea {
+        Core::Vector2 position;
+        Core::Vector2 size;
+    };
 
     class GameManager{
     public:
@@ -41,10 +47,17 @@ namespace Game {
         bool prevMouseDown_{ false };
 
         int deathWaitFrame_{ 0 };
-        
+
+        GameArea area_;
 
         // UI Components 
-        Component::ImageSpan bgAnime_[2];
+        Component::ImageSpan bgImage_;
+        Component::ImageSpan evilIconImage_;
+
+
+        
+
+        
         // [Main]
         Component::TextSpan titleText_;
         Component::Button startButton_;

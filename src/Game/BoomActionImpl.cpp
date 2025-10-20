@@ -5,16 +5,20 @@ namespace Game {
 
     // 初期化
     void IBoomAction::Init() {
-        int boomWidth = (int)session_->GetResources()->BoomHandle().resource.size.x;
-        int boomHeight = (int)session_->GetResources()->BoomHandle().resource.size.y;
-        boom_.position = { (float)(Core::kWindowWidth / 2 - boomWidth / 2), (float)(Core::kWindowHeight / 2 - boomHeight) };
         boom_.boomAnime_ = session_->GetResources()->BoomHandle();
+        boom_.animeScale = 0.4f;
         boom_.isActive = true;
+
+        int boomWidth = (int)(session_->GetResources()->BoomHandle().resource.size.x * boom_.animeScale);
+        int boomHeight = (int)(session_->GetResources()->BoomHandle().resource.size.y * boom_.animeScale);
+        boom_.position = { (float)(Core::kWindowWidth / 2 - boomWidth / 2), (float)(Core::kWindowHeight / 2 - boomHeight) };
+        
        
         countdownTimer_.Init(
             { 0.f, 0.f }, 5 * 60 * 60, 0,
             Core::COUNT_TIME,
             true,
+            boom_.animeScale,
             {
                 session_->GetResources()->NumberHandle(0),
                 session_->GetResources()->NumberHandle(1),
@@ -32,7 +36,7 @@ namespace Game {
         countdownTimer_.Pause(false);     
         countdownTimer_.CountDown(true);
        
-        countdownTimer_.SetPosition({ boom_.position.x + 367, boom_.position.y + 166});
+        countdownTimer_.SetPosition({ (boom_.position.x + boom_.animeScale * 367), (boom_.position.y + boom_.animeScale * 166)});
 
     }
 
@@ -46,7 +50,7 @@ namespace Game {
     void IBoomAction::Render() {
         
         Novice::DrawSpriteRect((int)boom_.position.x, (int)boom_.position.y, 0, 0, (int)boom_.boomAnime_.resource.size.x, (int)boom_.boomAnime_.resource.size.y,
-            boom_.boomAnime_.resource.textureHandle, 1, 1, 0, WHITE);
+            boom_.boomAnime_.resource.textureHandle, boom_.animeScale, boom_.animeScale, 0, WHITE);
 
         countdownTimer_.Render();
     }

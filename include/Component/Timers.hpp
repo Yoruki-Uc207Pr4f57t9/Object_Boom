@@ -20,6 +20,7 @@ namespace Component {
             float durationSec = 1.f,
             bool paused = true,
             bool isCountDown = true,
+            float scale = 1,
             std::vector<Core::AnimeHandle> handles = {}, 
             Core::AnimeHandle splitHandle = {}
         ) : position_(posi),
@@ -29,11 +30,12 @@ namespace Component {
             elapsedSec_(0.f), 
             paused_(paused), 
             isCountDown_(isCountDown), 
+            scale_(scale),
             digitHandle_(handles), 
             splitHandle_(splitHandle) {}
 
         void Init(Core::Vector2 posi, float startSec, float endSec, float durationSec,
-            bool isCountDown,
+            bool isCountDown, float scale,
             std::vector<Core::AnimeHandle> handles, Core::AnimeHandle splitHandle) {
             splitHandle_ = splitHandle;
             position_ = posi;
@@ -41,6 +43,7 @@ namespace Component {
             endSec_ = endSec;
             durationSec_ = max(0.0001f, durationSec);
             isCountDown_ = isCountDown;
+            scale_ = scale;
             if (isCountDown_) {
                 elapsedSec_ = startSec;
             } else {
@@ -153,30 +156,30 @@ namespace Component {
             for (int i = 0; i < hoursStr.length(); ++i) {
                 int idx = std::stoi(std::string(1, hoursStr[i]));
                 if (i < digitHandle_.size()) {
-                    Novice::DrawSpriteRect(offsetX, (int)position_.y,
+                    Novice::DrawSpriteRect(offsetX, (int)(position_.y),
                         (int)digitHandle_[idx].posi.x, (int)digitHandle_[idx].posi.y, (int)digitHandle_[idx].size.x, (int)digitHandle_[idx].size.y,
                         digitHandle_[idx].resource.textureHandle,
-                        0.1f, 1.0f, 0.0f, WHITE);
-                    offsetX += (int)digitHandle_[idx].size.x;
+                        0.1f * scale_, scale_, 0.0f, WHITE);
+                    offsetX += (int)(digitHandle_[idx].size.x * scale_);
                 }
             }
-            offsetX += 10;
+            offsetX += (int)(10 * scale_);
             // コロン部分の描画
-            Novice::DrawSpriteRect(offsetX, (int)position_.y,
+            Novice::DrawSpriteRect(offsetX, (int)(position_.y),
                 (int)0, (int)0, (int)splitHandle_.resource.size.x, (int)splitHandle_.resource.size.y,
                 splitHandle_.resource.textureHandle,
-                1.f, 1.0f, 0.0f, WHITE);
-            offsetX += (int)splitHandle_.resource.size.x;
-            offsetX += 10;
+                scale_, scale_, 0.0f, WHITE);
+            offsetX += (int)(splitHandle_.resource.size.x * scale_);
+            offsetX += (int)(10 * scale_);
             // 分部分の描画
             for(int i = 0; i < minutesStr.length(); ++i) {
                 int idx = std::stoi(std::string(1, minutesStr[i]));
                 if (i < digitHandle_.size()) {
-                    Novice::DrawSpriteRect(offsetX, (int)position_.y,
+                    Novice::DrawSpriteRect(offsetX, (int)(position_.y),
                         (int)digitHandle_[idx].posi.x, (int)digitHandle_[idx].posi.y, (int)digitHandle_[idx].size.x, (int)digitHandle_[idx].size.y,
                         digitHandle_[idx].resource.textureHandle,
-                        0.1f, 1.0f, 0.0f, WHITE);
-                    offsetX += (int)digitHandle_[idx].size.x;
+                        0.1f * scale_, scale_, 0.0f, WHITE);
+                    offsetX += (int)(digitHandle_[idx].size.x * scale_);
                 }
             }
         }
@@ -190,7 +193,7 @@ namespace Component {
         bool  paused_;
         bool  isCountDown_;
 
-      
+        float scale_;
         Core::AnimeHandle splitHandle_;
         Core::Vector2 position_;
         std::vector<Core::AnimeHandle> digitHandle_;

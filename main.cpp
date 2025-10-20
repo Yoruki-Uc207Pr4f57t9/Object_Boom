@@ -1,7 +1,5 @@
 ﻿#include <Novice.h>
 #include "Core/Config.hpp"
-// TEST
-#include "Component/Timers.hpp"
 #include "Game/GameSession.hpp"
 #include "Game/GameManager.hpp"
 
@@ -20,7 +18,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
     gameMgr->InitManager();
 
     // ウィンドウの×ボタンが押されるまでループ
-    while (Novice::ProcessMessage() == 0  && !session.GetGameSetting()->IsGameOver()) {
+    while (Novice::ProcessMessage() == 0 && !session.GetGameSetting()->IsGameOver()) {
         // フレームの開始
         Novice::BeginFrame();
         session.GetKeyBoard()->PollKeyboard(*session.GetKeyBoard(), *session.GetGameSetting());

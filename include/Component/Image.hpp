@@ -26,7 +26,9 @@ namespace Component {
                     (int)cursorHandle_.posi.x, (int)cursorHandle_.posi.y,
                     (int)cursorHandle_.size.x, (int)cursorHandle_.size.y,
                     cursorHandle_.resource.textureHandle,
-                    cursorHandle_.size.x / cursorHandle_.resource.size.x, 1, 0.0f, WHITE
+                    (cursorHandle_.size.x / cursorHandle_.resource.size.x * cursorHandle_.resource.scale), 
+                    (cursorHandle_.size.y / cursorHandle_.resource.size.y * cursorHandle_.resource.scale), 
+                    0.0f, WHITE
                 );
             }
         }
