@@ -22,7 +22,7 @@ namespace Game {
         Core::AudioHandle timeSound_;
         float animeScale = 1;
 
-        float timeValue = 0;
+        int timeValue = 0;
         Core::Point localP;
         Core::Point virtualP;
         Core::Matrix2x2 rotateMatrix;
