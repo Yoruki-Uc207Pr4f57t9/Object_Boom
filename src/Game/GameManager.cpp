@@ -6,7 +6,7 @@ namespace Game {
     void GameManager::InitResources() {
         session_->GetResources()->LoadAll();
         bgImage_ = Component::ImageSpan({ 0, 0 }, session_->GetResources()->MobileBGHandle());
-        evilIconImage_ = Component::ImageSpan({ 95.f, 50.f },
+        evilIconImage_ = Component::ImageSpan({ 95.f, 70.f },
             session_->GetResources()->EvilIconHandle());
 
         area_ = GameArea{
