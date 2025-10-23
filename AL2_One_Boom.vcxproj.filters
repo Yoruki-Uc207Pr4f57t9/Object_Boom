@@ -59,6 +59,9 @@
     <ClCompile Include="src\Game\SecretBoardActionImpl.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\GUIActionImpl.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="%KAMATA_ENGINE%\DirectXGame\audio\Audio.h">
@@ -182,6 +185,12 @@
       <Filter>include\Game</Filter>
     </ClInclude>
     <ClInclude Include="include\Game\ISecretBoardAction.hpp">
+      <Filter>include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game\IGUIAction.hpp">
+      <Filter>include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game\IAction.hpp">
       <Filter>include\Game</Filter>
     </ClInclude>
   </ItemGroup>

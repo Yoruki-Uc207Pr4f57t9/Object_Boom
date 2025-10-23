@@ -2,9 +2,10 @@
 #include "Core/Math.hpp"
 #include "Core/ResourceManager.hpp"
 
-namespace Game {
+namespace Entity {
 
-    struct Boom {
+    class Boom {
+    public:
         Core::Vector2 position;
 
         Core::AnimeHandle boomAnime_;
@@ -15,7 +16,8 @@ namespace Game {
 
     
 
-    struct SecretBoard {
+    class SecretBoard {
+    public:
         Core::Vector2 position;
         Core::AnimeHandle passwdAnime_;
         Core::AnimeHandle flagAnime_;
@@ -28,6 +30,12 @@ namespace Game {
         Core::Matrix2x2 rotateMatrix;
 
         bool isActive;
+    };
+
+    class PlayerData {
+    public:
+        int batteryCount = 0;
+        int missionCount = 0;
     };
 
     enum class EffectType {

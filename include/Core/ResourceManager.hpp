@@ -52,6 +52,8 @@ namespace Core {
         AnimeHandle SBPasswdHandle();
         AnimeHandle SBFlagHandle();
 
+        AnimeHandle MobilePowerHandle(int num);   // 0~3
+
         
         void LoadAll();
 
@@ -64,6 +66,8 @@ namespace Core {
 
         AnimeResource sBPasswdRes_;
         AnimeResource sBFlagRes_;
+
+        AnimeResource mobilePowerRes_;
 
 
     };

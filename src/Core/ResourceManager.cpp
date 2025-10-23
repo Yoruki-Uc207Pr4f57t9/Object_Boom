@@ -16,6 +16,8 @@ namespace Core {
         sBPasswdRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/SecretBoard_Password_Type_02[1024x1024].png"), 1, { 1024, 1024 }, 0.25f);
         sBFlagRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/SecretBoard_Flag[770x810].png"), 1, { 770, 810 }, 0.36f);
 
+        mobilePowerRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Power[128x15][32x15_4].png"), 4, { 128, 15 }, 1);
+
     }
 
     AnimeHandle ResourceManager::BoomHandle() {
@@ -52,6 +54,9 @@ namespace Core {
         return AnimeHandle({ 0.0f, 0.0f }, sBFlagRes_.size, sBFlagRes_);
     };
 
+    AnimeHandle ResourceManager::MobilePowerHandle(int num) {
+        return AnimeHandle({(float)(num * 32), 0.0f}, { 32, 15 }, mobilePowerRes_);
+    };
 
 } // namespace Core
 

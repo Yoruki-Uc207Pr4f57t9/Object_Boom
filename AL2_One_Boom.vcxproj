@@ -115,6 +115,7 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="src\Game\GameManager.cpp" />
     <ClCompile Include="src\Game\Input.cpp" />
     <ClCompile Include="src\Game\SecretBoardActionImpl.cpp" />
+    <ClCompile Include="src\Game\GUIActionImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\DirectXGame\3d\Camera.h" />
@@ -155,9 +156,11 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="include\Game\GameManager.hpp" />
     <ClInclude Include="include\Game\GameSession.hpp" />
     <ClInclude Include="include\Game\GameSetting.hpp" />
+    <ClInclude Include="include\Game\IAction.hpp" />
     <ClInclude Include="include\Game\Input.hpp" />
     <ClInclude Include="include\Game\IBoomAction.hpp" />
     <ClInclude Include="include\Game\ISecretBoardAction.hpp" />
+    <ClInclude Include="include\Game\IGUIAction.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

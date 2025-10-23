@@ -40,6 +40,11 @@ namespace Game {
 
     }
 
+    void IBoomAction::Input(KeyBoard& kb, Mouse& mouse) {
+        kb;
+        mouse;
+    }
+
     // 更新
     void IBoomAction::Update() {
         countdownTimer_.UpdateByFrames(1, 60.0f);
@@ -58,6 +63,6 @@ namespace Game {
     // 終了
     void IBoomAction::Shutdown() {
         effectCooldown_ = 0;
-        boom_ = Boom();
+        boom_ = Entity::Boom();
     }
 }

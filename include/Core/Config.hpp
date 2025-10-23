@@ -11,6 +11,8 @@ namespace Core {
     constexpr int COUNT_TIME = (3 * 60);
 
     constexpr double PI = 3.14159265358979323846;
+    constexpr int PLAYER_M_LIVES = 4;  // プレイヤーの初期バッテリー数 (4枚絵)
+    constexpr int PLAYER_M_MISSION = 3;
 
     enum MouseCursor {
         HIDE_MOUSE = 0,
