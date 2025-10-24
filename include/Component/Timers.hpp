@@ -113,9 +113,9 @@ namespace Component {
 
         bool IsFinished() const { 
             if (isCountDown_) {
-                return elapsedSec_ >= durationSec_;
+                return elapsedSec_ <= 0.f;
             } else {
-                return elapsedSec_ <= durationSec_;
+                return elapsedSec_ >= durationSec_;
             }
         }
 

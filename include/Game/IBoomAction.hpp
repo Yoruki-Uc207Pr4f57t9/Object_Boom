@@ -14,6 +14,7 @@ namespace Game {
         void Render();
         void Shutdown();
         Entity::Boom& GetBoom() { return boom_; }
+        Component::RangeClock& GetCountdownTimer() { return countdownTimer_; }
 
 
     private:

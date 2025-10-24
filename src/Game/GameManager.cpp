@@ -9,35 +9,78 @@ namespace Game {
 
     // マネージャーの初期化
     void GameManager::InitManager() {
+        mainAct_->Init();
+
         boomAct_->Init();
         secretBoardAct_->Init();
         guiAct_->Init();
+
+        winAct_->Init();
+        loseAct_->Init();
+        hideAct_->Init();
+
+
     }
 
     // 入力処理
     void GameManager::OnInput() {
         session_->GetKeyBoard()->PollKeyboard(*session_->GetKeyBoard(), *session_->GetGameSetting());
-        secretBoardAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
+        if (session_->GetCurrentState() == Core::SceneState::MAIN) {
+            mainAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
+            secretBoardAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
+
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
+
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_HIDE) {
+            hideAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
+        }
+
     }
 
     // 更新処理
     void GameManager::Update() {
-        //if (session_->GetCurrentState() != Core::SceneState::GAMEPLAY) return;
+        // return;
+        if (session_->GetCurrentState() == Core::SceneState::MAIN) {
+            mainAct_->Update();
+            guiAct_->Update();
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
+            boomAct_->Update();
+            secretBoardAct_->Update();
+            guiAct_->Update();
 
-        boomAct_->Update();
-        secretBoardAct_->Update();
-        guiAct_->Update();
+            if (session_->GetPlayerData()->batteryCount == 0 || boomAct_->GetCountdownTimer().IsFinished()) {
+                Novice::ScreenPrintf(100, 50, "Game Over");
+            }
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
 
-        if (session_->GetPlayerData()->batteryCount == 0) {
-            Novice::ScreenPrintf(100, 50, "Game Over");
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
+
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_HIDE) {
+            hideAct_->Update();
         }
+
+       
     }
 
     // 描画処理
     void GameManager::Render() {
-        boomAct_->Render();
-        secretBoardAct_->Render();
-        guiAct_->Render();
+        if (session_->GetCurrentState() == Core::SceneState::MAIN) {
+            mainAct_->Render();
+            guiAct_->Render();
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
+            boomAct_->Render();
+            secretBoardAct_->Render();
+            guiAct_->Render();
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
+            winAct_->Render();
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
+            loseAct_->Render();
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_HIDE) {
+            hideAct_->Render();
+        }
+        
 
     }
 

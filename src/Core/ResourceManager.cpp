@@ -11,13 +11,18 @@ namespace Core {
         separatorRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Separator[17x74].png"), 1, { 17, 74 }, 1);
 
         mobileBGRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Mobile[480x720].png"), 1,{480, 720}, 1);
-        evilIconRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Evil[1024x1536].png"), 1 , {1024,1536}, 0.1f);
+        mobileMainBGRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Mobile_Main[480x720].png"), 1,{480, 720}, 1);
+        evilIconRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Evil01[780x1024].png"), 1 , {780,1024}, 0.1f);
+        evilIconComicRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Evil_Icon[1024x1024].png"), 1 , {1024,1024}, 0.16f);
+        evilIconNameRes_ = AnimeResource(Novice::LoadTexture("./Assets/Text/Icon_Name[220x32].png"), 1, { 220, 32 }, 1.f);
 
         sBPasswdRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/SecretBoard_Password_Type_02[1024x1024].png"), 1, { 1024, 1024 }, 0.25f);
         sBFlagRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/SecretBoard_Flag[770x810].png"), 1, { 770, 810 }, 0.36f);
 
         mobilePowerRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Power[128x15][32x15_4].png"), 4, { 128, 15 }, 1);
 
+
+        mainFlagRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Flag[70x78].png"), 1, { 70, 78 }, 0.3f);
     }
 
     AnimeHandle ResourceManager::BoomHandle() {
@@ -40,6 +45,14 @@ namespace Core {
         return AnimeHandle({ 0.0f, 0.0f }, mobileBGRes_.size, mobileBGRes_);
     };
     
+    AnimeHandle ResourceManager::MobileMainBGHandle() {
+        return AnimeHandle({ 0.0f, 0.0f }, mobileMainBGRes_.size, mobileMainBGRes_);
+    };
+
+
+    AnimeHandle ResourceManager::EvilIconComicHandle() {
+        return AnimeHandle({ 0.0f, 0.0f }, evilIconComicRes_.size, evilIconComicRes_);
+    }
 
     AnimeHandle ResourceManager::EvilIconHandle() {
         return AnimeHandle({ 0.0f, 0.0f }, evilIconRes_.size, evilIconRes_);
@@ -56,6 +69,15 @@ namespace Core {
 
     AnimeHandle ResourceManager::MobilePowerHandle(int num) {
         return AnimeHandle({(float)(num * 32), 0.0f}, { 32, 15 }, mobilePowerRes_);
+    };
+
+    AnimeHandle ResourceManager::MainFlagHandle() {
+        return AnimeHandle({ 0.0f, 0.0f }, mainFlagRes_.size, mainFlagRes_);
+    };
+
+    // Text
+    AnimeHandle ResourceManager::EvilIconTextHandle() {
+        return AnimeHandle({ 0.0f, 0.0f }, evilIconNameRes_.size, evilIconNameRes_);
     };
 
 } // namespace Core

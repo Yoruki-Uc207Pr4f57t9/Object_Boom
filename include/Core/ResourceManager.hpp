@@ -41,18 +41,28 @@ namespace Core {
 
     class ResourceManager {
     public:
+        // Anime
         AnimeHandle BoomHandle();
         AnimeHandle NumberHandle(int num); // 0~9
         AnimeHandle SeparatorHandle(); // :
 
         AnimeHandle MobileBGHandle();
+        AnimeHandle MobileMainBGHandle();
 
         AnimeHandle EvilIconHandle();
+        AnimeHandle EvilIconComicHandle();
+        
 
         AnimeHandle SBPasswdHandle();
         AnimeHandle SBFlagHandle();
 
         AnimeHandle MobilePowerHandle(int num);   // 0~3
+
+
+        // Text
+        AnimeHandle EvilIconTextHandle();
+
+        AnimeHandle MainFlagHandle(); 
 
         
         void LoadAll();
@@ -61,13 +71,19 @@ namespace Core {
         AnimeResource boomRes_;
         AnimeResource numberRes_;
         AnimeResource separatorRes_;
+
         AnimeResource mobileBGRes_;
+        AnimeResource mobileMainBGRes_;
         AnimeResource evilIconRes_;
+        AnimeResource evilIconComicRes_;
+        AnimeResource evilIconNameRes_;
 
         AnimeResource sBPasswdRes_;
         AnimeResource sBFlagRes_;
 
         AnimeResource mobilePowerRes_;
+
+        AnimeResource mainFlagRes_;
 
 
     };

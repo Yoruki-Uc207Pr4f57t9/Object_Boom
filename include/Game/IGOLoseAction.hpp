@@ -1,0 +1,19 @@
+﻿#pragma once
+#include "Game/IAction.hpp"
+#include <vector>
+
+namespace Game {
+    class IGOLoseAction : public IAction {
+    public:
+        explicit IGOLoseAction(Game::GameSession* session) : session_(session) {}
+        void Init();
+        void Input(KeyBoard& kb, Mouse& mouse);
+        void Update();
+        void Render();
+        void Shutdown();
+    private:
+        Game::GameSession* session_{ nullptr };
+
+    };
+}
+

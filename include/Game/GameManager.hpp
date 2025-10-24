@@ -8,6 +8,10 @@
 #include "Game/IBoomAction.hpp"
 #include "Game/ISecretBoardAction.hpp"
 #include "Game/IGUIAction.hpp"
+#include "Game/IMainAction.hpp"
+#include "Game/IGOWinAction.hpp"
+#include "Game/IGOLoseAction.hpp"
+#include "Game/IGOHideAction.hpp"
 #include "Game/GameSession.hpp"
 
 namespace Game {
@@ -16,6 +20,11 @@ namespace Game {
     class GameManager {
     public:
         explicit GameManager(Game::GameSession* session) : session_(session){
+            mainAct_ = new Game::IMainAction(session);
+            winAct_ = new Game::IGOWinAction(session);
+            loseAct_ = new Game::IGOLoseAction(session);
+            hideAct_ = new Game::IGOHideAction(session);
+
             guiAct_ = new Game::IGUIAction(session);
             boomAct_ = new Game::IBoomAction(session);
             secretBoardAct_ = new Game::ISecretBoardAction(session);
@@ -48,6 +57,10 @@ namespace Game {
         Game::IBoomAction* boomAct_{ nullptr };
         Game::ISecretBoardAction* secretBoardAct_{ nullptr };
         Game::IGUIAction* guiAct_{ nullptr };
+        Game::IMainAction* mainAct_{ nullptr };
+        Game::IGOWinAction* winAct_{ nullptr };
+        Game::IGOLoseAction* loseAct_{ nullptr };
+        Game::IGOHideAction* hideAct_{ nullptr };
     };
 
 } // namespace Scenes

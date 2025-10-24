@@ -24,7 +24,16 @@ namespace Game {
     }
     void IGUIAction::Render() {
         bgImage_.Render();
-        evilIconImage_.Render();
+        if (session_->GetCurrentState() == Core::SceneState::MAIN) {
+            
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
+            evilIconImage_.Render();
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
+
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
+
+        }
+        
 
         Novice::DrawSpriteRect(345, 50,  (int)powerMeter_.posi.x, (int)powerMeter_.posi.y, (int)powerMeter_.size.x, (int)powerMeter_.size.y, powerMeter_.resource.textureHandle, 0.25f, 1.f,0, WHITE);
 
