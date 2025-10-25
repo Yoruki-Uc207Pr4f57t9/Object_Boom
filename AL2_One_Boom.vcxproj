@@ -117,6 +117,7 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClCompile Include="src\Game\GOLoseActionImpl.cpp" />
     <ClCompile Include="src\Game\GOWinActionImpl.cpp" />
     <ClCompile Include="src\Game\Input.cpp" />
+    <ClCompile Include="src\Game\LoadingActionImpl.cpp" />
     <ClCompile Include="src\Game\MainActionImpl.cpp" />
     <ClCompile Include="src\Game\SecretBoardActionImpl.cpp" />
     <ClCompile Include="src\Game\GUIActionImpl.cpp" />
@@ -164,6 +165,7 @@ xcopy %KAMATA_ENGINE%\DirectXGame\Resources "$(OutDirFullPath)NoviceResources" /
     <ClInclude Include="include\Game\IGOHideAction.hpp" />
     <ClInclude Include="include\Game\IGOLoseAction.hpp" />
     <ClInclude Include="include\Game\IGOWinAction.hpp" />
+    <ClInclude Include="include\Game\ILoadingAction.hpp" />
     <ClInclude Include="include\Game\IMainAction.hpp" />
     <ClInclude Include="include\Game\Input.hpp" />
     <ClInclude Include="include\Game\IBoomAction.hpp" />

@@ -16,5 +16,6 @@ namespace Game {
 
     }
     void IGOLoseAction::Shutdown() {
+
     }
 }

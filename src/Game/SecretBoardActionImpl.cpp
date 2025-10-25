@@ -30,7 +30,7 @@ namespace Game {
             session_->GetPlayerData()->batteryCount--;
             session_->ResetInputLock();
         } */
-        if (kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0) {
+        if (kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0 && session_->DetectInputLock()) {
             session_->GetPlayerData()->batteryCount--;
         }
     }

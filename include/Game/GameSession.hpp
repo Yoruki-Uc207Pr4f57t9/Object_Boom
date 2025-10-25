@@ -13,7 +13,8 @@ namespace Game {
             , setting_()
             , mouse_()
             , keyboard_()
-            , currentState_(Core::SceneState::MAIN) {
+            , currentState_(Core::SceneState::MAIN)
+            , loading_(false){
             playerData_.batteryCount = Core::PLAYER_M_LIVES;
             playerData_.missionCount = Core::PLAYER_M_MISSION;
         }
@@ -22,12 +23,16 @@ namespace Game {
             , setting_(setting)
             , mouse_(mouse)
             , keyboard_(keyboard)
-            , currentState_(Core::SceneState::MAIN) {
+            , currentState_(Core::SceneState::MAIN)
+            , loading_(false) {
             playerData_.batteryCount = Core::PLAYER_M_LIVES;
             playerData_.missionCount = Core::PLAYER_M_MISSION;
         }
         Core::SceneState GetCurrentState() const { return currentState_; }
         void SetCurrentState(Core::SceneState state) { currentState_ = state; }
+
+        bool GetLoading() const { return loading_; }
+        void SetLoading(bool state) { loading_ = state; }
 
         void SetMouse(Mouse mo) { mouse_ = mo; }
         Mouse* GetMouse() { return &mouse_; }
@@ -54,6 +59,7 @@ namespace Game {
 
         Entity::PlayerData          playerData_;
 
+        bool                        loading_;
         Core::SceneState            currentState_;
     };
 

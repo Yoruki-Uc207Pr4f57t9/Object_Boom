@@ -16,8 +16,10 @@ namespace Game {
         if (kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0) {
             if (selectIndex_ == Core::RLModel::RIGHT) {
                 session_->SetCurrentState(Core::SceneState::GAMEPLAY);
+                session_->SetLoading(true);
             } else {
                 session_->SetCurrentState(Core::SceneState::GAMEOVER_HIDE);
+                session_->SetLoading(true);
             }
         }
     }

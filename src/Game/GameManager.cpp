@@ -41,8 +41,11 @@ namespace Game {
 
     // 更新処理
     void GameManager::Update() {
-        // return;
-        if (session_->GetCurrentState() == Core::SceneState::MAIN) {
+        if (session_->GetLoading()) {
+            if (session_->GetGameSetting()->GetCurrentFrame() % (1 * 60) == 0) {
+                session_->SetLoading(false);
+            }
+        } else if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             mainAct_->Update();
             guiAct_->Update();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
@@ -51,7 +54,9 @@ namespace Game {
             guiAct_->Update();
 
             if (session_->GetPlayerData()->batteryCount == 0 || boomAct_->GetCountdownTimer().IsFinished()) {
-                Novice::ScreenPrintf(100, 50, "Game Over");
+                Novice::ScreenPrintf(100, 50, "Game Over-Lose");
+            } else if (session_->GetPlayerData()->missionCount == 0) {
+                Novice::ScreenPrintf(100, 50, "Game Over-Win");
             }
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
 
@@ -66,7 +71,9 @@ namespace Game {
 
     // 描画処理
     void GameManager::Render() {
-        if (session_->GetCurrentState() == Core::SceneState::MAIN) {
+        if (session_->GetLoading()){
+            Novice::ScreenPrintf(100, 100, "Plaese Wait...");
+        } else if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             mainAct_->Render();
             guiAct_->Render();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
