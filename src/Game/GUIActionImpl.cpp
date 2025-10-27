@@ -24,7 +24,9 @@ namespace Game {
     }
     void IGUIAction::Render() {
         bgImage_.Render();
-        if (session_->GetCurrentState() == Core::SceneState::MAIN) {
+        if (session_->GetLoading()) {
+            
+        } else if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
             evilIconImage_.Render();

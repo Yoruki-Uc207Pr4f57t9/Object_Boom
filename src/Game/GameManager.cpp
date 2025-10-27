@@ -19,6 +19,8 @@ namespace Game {
         loseAct_->Init();
         hideAct_->Init();
 
+        loadingAct_->Init();
+
 
     }
 
@@ -32,7 +34,7 @@ namespace Game {
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
 
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
-
+            loseAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_HIDE) {
             hideAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
         }
@@ -45,6 +47,7 @@ namespace Game {
             if (session_->GetGameSetting()->GetCurrentFrame() % (1 * 60) == 0) {
                 session_->SetLoading(false);
             }
+            loadingAct_->Update();
         } else if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             mainAct_->Update();
             guiAct_->Update();
@@ -54,16 +57,19 @@ namespace Game {
             guiAct_->Update();
 
             if (session_->GetPlayerData()->batteryCount == 0 || boomAct_->GetCountdownTimer().IsFinished()) {
-                Novice::ScreenPrintf(100, 50, "Game Over-Lose");
+                session_->SetCurrentState(Core::SceneState::GAMEOVER_LOSE);
             } else if (session_->GetPlayerData()->missionCount == 0) {
-                Novice::ScreenPrintf(100, 50, "Game Over-Win");
+                session_->SetCurrentState(Core::SceneState::GAMEOVER_WIN);
             }
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
 
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
-
+            loseAct_->Update();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_HIDE) {
             hideAct_->Update();
+        } else {
+            Reset();
+            session_->SetCurrentState(Core::SceneState::MAIN);
         }
 
        
@@ -72,13 +78,14 @@ namespace Game {
     // 描画処理
     void GameManager::Render() {
         if (session_->GetLoading()){
-            Novice::ScreenPrintf(100, 100, "Plaese Wait...");
+            loadingAct_->Render();
+            guiAct_->Render();
         } else if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             mainAct_->Render();
             guiAct_->Render();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
-            boomAct_->Render();
             secretBoardAct_->Render();
+            boomAct_->Render();
             guiAct_->Render();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
             winAct_->Render();
@@ -93,9 +100,14 @@ namespace Game {
 
     // 終了処理
     void GameManager::Shutdown() {
-        boomAct_->Shutdown();
+        /*boomAct_->Shutdown();
         secretBoardAct_->Shutdown();
-        guiAct_->Shutdown();
+        guiAct_->Shutdown();*/
+    }
+
+    void GameManager::Reset() {
+        session_->GetPlayerData()->batteryCount = Core::PLAYER_M_LIVES;
+        session_->GetPlayerData()->missionCount = Core::PLAYER_M_MISSION;
     }
 }
 

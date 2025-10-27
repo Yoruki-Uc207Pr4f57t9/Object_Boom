@@ -28,20 +28,5 @@ namespace Game {
         // PowerMeter
         Core::AnimeHandle powerMeter_;
 
-        // [Main]
-        Component::TextSpan titleText_;
-        Component::Button startButton_;
-        Component::Button exitButton_;
-
-        // [ReGame]
-        Component::TextSpan reText_;
-        Component::Button yesButton_;
-        Component::Button noButton_;
-
-        // [GameOver-WIN]
-        Component::TextSpan winText_;
-
-        // [GameOver-LOSE]
-        Component::TextSpan loseText_;
      };
 }

@@ -5,7 +5,7 @@ namespace Core {
     // 393×852
     constexpr int kWindowWidth = 480;
     constexpr int kWindowHeight = 720;
-    constexpr char kWindowTitle[] = "One_Boom";
+    constexpr char kWindowTitle[] = "タイムリミット：残された選択";
 
     constexpr int INPUT_LOCK_FRAME = 30;
     constexpr int COUNT_TIME = (3 * 60);
@@ -32,7 +32,8 @@ namespace Core {
         PAUSE,
         GAMEOVER_WIN,
         GAMEOVER_LOSE,
-        GAMEOVER_HIDE
+        GAMEOVER_HIDE,
+        RESET
     };
 
     enum RLModel : int {

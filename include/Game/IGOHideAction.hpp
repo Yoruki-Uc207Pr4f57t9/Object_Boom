@@ -14,5 +14,9 @@ namespace Game {
     private:
         Game::GameSession* session_{ nullptr };
 
+        Component::TextSpan hideText_;
+
+        int switchTime_ = 6;
+
     };
 }

@@ -44,6 +44,9 @@ namespace Component {
         void SetSize(Core::Vector2 size) {
             size_ = size;
         }
+        Core::Vector2 GetSize() {
+            return size_;
+        }
         void SetPosition(Core::Vector2 position) {
             position_ = position;
         }

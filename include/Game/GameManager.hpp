@@ -12,6 +12,7 @@
 #include "Game/IGOWinAction.hpp"
 #include "Game/IGOLoseAction.hpp"
 #include "Game/IGOHideAction.hpp"
+#include "Game/ILoadingAction.hpp"
 #include "Game/GameSession.hpp"
 
 namespace Game {
@@ -25,6 +26,8 @@ namespace Game {
             loseAct_ = new Game::IGOLoseAction(session);
             hideAct_ = new Game::IGOHideAction(session);
 
+            loadingAct_ = new Game::ILoadingAction(session);
+
             guiAct_ = new Game::IGUIAction(session);
             boomAct_ = new Game::IBoomAction(session);
             secretBoardAct_ = new Game::ISecretBoardAction(session);
@@ -36,15 +39,7 @@ namespace Game {
             delete secretBoardAct_;
             delete guiAct_;
         }
-        void Reset() {
-            session_->SetGameSetting(Game::GameSetting());
-            session_->GetMouse()->Close();
-            session_->SetKeyBoard(Game::KeyBoard());
-            boomAct_->Shutdown();
-            secretBoardAct_->Shutdown();
-            guiAct_->Shutdown();
-
-        }
+        void Reset();
         void InitResources();
         void InitManager() ;
         void OnInput() ;
@@ -60,7 +55,8 @@ namespace Game {
         Game::IMainAction* mainAct_{ nullptr };
         Game::IGOWinAction* winAct_{ nullptr };
         Game::IGOLoseAction* loseAct_{ nullptr };
-        Game::IGOHideAction* hideAct_{ nullptr };
+        Game::IGOHideAction* hideAct_{ nullptr }; 
+        Game::ILoadingAction* loadingAct_{ nullptr };
     };
 
 } // namespace Scenes

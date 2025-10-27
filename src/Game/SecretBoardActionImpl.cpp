@@ -32,6 +32,7 @@ namespace Game {
         } */
         if (kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0 && session_->DetectInputLock()) {
             session_->GetPlayerData()->batteryCount--;
+            session_->DetectInputLock();
         }
     }
 
@@ -73,8 +74,9 @@ namespace Game {
         int sizeFLY = (int)(secretBoard_.flagAnime_.resource.size.y * scaleFL);
         int offsetY = 32;
         int offsetX = 2;
-        //Novice::DrawBox((int)(Core::kWindowWidth / 2 - sizeFLX / 2) - offsetX, (int)(Core::kWindowHeight / 2 + sizeFLY / 4) - offsetY, sizeFLX, sizeFLY, 0, WHITE, kFillModeSolid);
-        Novice::DrawBox(0, (int)(Core::kWindowHeight / 2 + sizeFLY / 4) - offsetY, Core::kWindowWidth, sizeFLY, 0, WHITE, kFillModeSolid);
+        //Novice::DrawBox(0, (int)(Core::kWindowHeight / 2 + sizeFLY / 4) - offsetY, Core::kWindowWidth, sizeFLY, 0, WHITE, kFillModeSolid);
+
+        Novice::DrawBox(0, 0, Core::kWindowWidth, Core::kWindowHeight, 0, WHITE, kFillModeSolid);
 
         Novice::DrawQuad(
             (int)(secretBoard_.localP.leftTop.x ),
