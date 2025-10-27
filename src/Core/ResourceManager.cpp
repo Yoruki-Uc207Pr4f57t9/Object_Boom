@@ -53,6 +53,9 @@ namespace Core {
         evilTL09Text05Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_09=Evil_Text_05[182x116].png"), 1, { 182,116 }, 1.f);
         playerTL10Text05Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_10=Player_Text_05[450x30].png"), 1, { 450,30 }, 1.f);
         evilTL11Text06Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_11=Evil_Text_06[199x93].png"), 1, { 199,93 }, 1.f);
+
+        //audio
+        timeRes_ = AudioResource(Novice::LoadAudio(""));
     }
 
     AnimeHandle ResourceManager::BoomHandle() {

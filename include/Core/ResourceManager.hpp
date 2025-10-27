@@ -10,6 +10,9 @@ namespace Core {
         bool isLoop;
         float volume;
         AudioResource() : handle(-1), isPlaying(false), isLoop(false), volume(1.0f) {}
+        AudioResource(int textureHandle, bool isPlaying, bool isLoop, float volume)
+            : handle(textureHandle), isPlaying(isPlaying), isLoop(isLoop), volume(volume) {
+        }
     };
 
     struct AudioHandle {
@@ -94,6 +97,8 @@ namespace Core {
         AnimeHandle TL11EvilText06Handle();
 
         
+        // audio
+        AudioHandle ClockHandle();
 
         
         void LoadAll();
@@ -151,6 +156,9 @@ namespace Core {
         AnimeResource goWinTL07TextRes_;
         AnimeResource goWinTL08TextRes_;
 
+
+        // audio
+        AudioResource timeRes_;
 
 
 

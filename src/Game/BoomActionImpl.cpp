@@ -1,8 +1,13 @@
 ﻿#include "Game/IBoomAction.hpp"
-#include <vector>
 #include <Novice.h>
 
 namespace Game {
+    int GetRandomInt(int min, int max) {
+        static std::random_device rd;      // 一度だけ生成
+        static std::mt19937 gen(rd());     // 高品質な乱数エンジン
+        std::uniform_int_distribution<> dist(min, max);
+        return dist(gen);
+    }
 
     // 初期化
     void IBoomAction::Init() {
@@ -39,6 +44,15 @@ namespace Game {
        
         countdownTimer_.SetPosition({ (boom_.position.x + boom_.animeScale * 367), (boom_.position.y + boom_.animeScale * 166)});
 
+        for (int k = 0; k < Core::PW_ROW; k++) {
+            std::vector<int> cell;
+            for (int p = 0; p < Core::PW_CELL; p++) {
+                cell.push_back(GetRandomInt(0, 9));
+            }
+            session_->GetPlayerData()->keychains.push_back(cell);
+        }
+        session_->GetPlayerData()->passwordIndex = { 0, 0 };
+
     }
 
     void IBoomAction::Input(KeyBoard& kb, Mouse& mouse) {
@@ -60,9 +74,21 @@ namespace Game {
         countdownTimer_.Render();
         if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
             std::vector<int> rdPW = session_->GetPlayerData()->keychains.at((int)session_->GetPlayerData()->passwordIndex.y);
-            for (int i = 0; i < rdPW.size(); i++) {
+            
+            for (int i = 0; i < rdPW.size(); i++) {         
                 auto num = session_->GetResources()->NumberPWHandle(rdPW.at(i));
-                Novice::DrawSpriteRect((int)(boom_.position.x + (num.size.x * i) + 100), (int)(boom_.position.y + 150),
+                int localX = (int)(boom_.position.x + (num.size.x * i) + 100);
+                int localY = (int)(boom_.position.y + 150);
+                if ((int)session_->GetPlayerData()->passwordIndex.y == 1) {
+                    localX += GetRandomInt(-5, 5);
+                    localY += GetRandomInt(-5, 5);
+                } else if ((int)session_->GetPlayerData()->passwordIndex.y == 2) {
+                    if (session_->GetGameSetting()->GetCurrentFrame() % 60 != 0){
+                        Novice::DrawBox(localX, localY, (int)num.size.x, (int)num.size.y, 0, BLACK, kFillModeSolid);
+                    }
+                }
+                
+                Novice::DrawSpriteRect(localX, localY,
                     (int)num.posi.x, (int)num.posi.y, (int)num.size.x, (int)num.size.y,
                     num.resource.textureHandle,
                     0.1f, 1.f, 0, WHITE);
@@ -74,5 +100,14 @@ namespace Game {
     void IBoomAction::Shutdown() {
         effectCooldown_ = 0;
         boom_ = Entity::Boom();
+        session_->GetPlayerData()->keychains.clear();
+        for (int k = 0; k < Core::PW_ROW; k++) {
+            std::vector<int> cell;
+            for (int p = 0; p < Core::PW_CELL; p++) {
+                cell.push_back(GetRandomInt(0, 9));
+            }
+            session_->GetPlayerData()->keychains.push_back(cell);
+        }
+        session_->GetPlayerData()->passwordIndex = { 0, 0 };
     }
 }

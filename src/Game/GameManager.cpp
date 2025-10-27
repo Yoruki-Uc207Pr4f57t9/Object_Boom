@@ -1,12 +1,7 @@
 ﻿#include "Game/GameManager.hpp"
 
 namespace Game {
-    int GetRandomInt(int min, int max) {
-        static std::random_device rd;      // 一度だけ生成
-        static std::mt19937 gen(rd());     // 高品質な乱数エンジン
-        std::uniform_int_distribution<> dist(min, max);
-        return dist(gen);
-    }
+    
 
     // リソースの初期化
     void GameManager::InitResources() {
@@ -28,14 +23,7 @@ namespace Game {
         loadingAct_->Init();
         playTextAct_->Init();
 
-        for (int k = 0; k < Core::PW_ROW; k++) {
-            std::vector<int> cell;
-            for (int p = 0; p < Core::PW_CELL; p++) {
-                cell.push_back(GetRandomInt(0, 9));
-            }
-            session_->GetPlayerData()->keychains.push_back(cell);
-        }
-        session_->GetPlayerData()->passwordIndex = { 0, 0 };
+        
 
     }
 
@@ -125,15 +113,7 @@ namespace Game {
     void GameManager::Reset() {
         session_->GetPlayerData()->batteryCount = Core::PLAYER_M_LIVES;
         session_->GetPlayerData()->missionCount = Core::PLAYER_M_MISSION;
-        session_->GetPlayerData()->keychains.clear();
-        for (int k = 0; k < Core::PW_ROW; k++) {
-            std::vector<int> cell;
-            for (int p = 0; p < Core::PW_CELL; p++) {
-                cell.push_back(GetRandomInt(0, 9));
-            }
-            session_->GetPlayerData()->keychains.push_back(cell);
-        }
-        session_->GetPlayerData()->passwordIndex = { 0, 0 };
+        boomAct_->Shutdown();
         winAct_->Shutdown();
         loseAct_->Shutdown();
         //playTextAct_->Shutdown();

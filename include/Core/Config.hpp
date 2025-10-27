@@ -12,7 +12,7 @@ namespace Core {
 
     constexpr double PI = 3.14159265358979323846;
     constexpr int PLAYER_M_LIVES = 4;  // プレイヤーの初期バッテリー数 (4枚絵)
-    constexpr int PLAYER_M_MISSION = 3;
+    constexpr int PLAYER_M_MISSION = 3;  // プレイヤーの挑戦数（3枚絵） 
 
     constexpr int PW_ROW = 3;
     constexpr int PW_CELL = 5;

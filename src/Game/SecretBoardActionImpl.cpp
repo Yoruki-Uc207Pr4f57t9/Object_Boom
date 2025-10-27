@@ -51,6 +51,7 @@ namespace Game {
         // Test
         if (kb.keys[DIK_P] == 0 && kb.preKeys[DIK_P] != 0) {
             session_->GetPlayerData()->missionCount--;
+            session_->GetPlayerData()->passwordIndex.y++;
         }
     }
 
