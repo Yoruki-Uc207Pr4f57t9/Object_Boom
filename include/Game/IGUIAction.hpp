@@ -25,8 +25,10 @@ namespace Game {
         // UI Components 
         Component::ImageSpan bgImage_;
         Component::ImageSpan evilIconImage_;
-        // PowerMeter
+        // PowerMeter(Life)
         Core::AnimeHandle powerMeter_;
+        // Line(Mission)
+        Core::AnimeHandle line_;
 
      };
 }

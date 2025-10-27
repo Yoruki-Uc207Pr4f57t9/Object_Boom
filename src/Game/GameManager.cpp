@@ -20,6 +20,7 @@ namespace Game {
         hideAct_->Init();
 
         loadingAct_->Init();
+        playTextAct_->Init();
 
 
     }
@@ -29,10 +30,12 @@ namespace Game {
         session_->GetKeyBoard()->PollKeyboard(*session_->GetKeyBoard(), *session_->GetGameSetting());
         if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             mainAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
+        } if (session_->GetCurrentState() == Core::SceneState::TEXT) {
+            playTextAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
             secretBoardAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
-
+            winAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
             loseAct_->Input(*session_->GetKeyBoard(), *session_->GetMouse());
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_HIDE) {
@@ -51,7 +54,8 @@ namespace Game {
         } else if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             mainAct_->Update();
             guiAct_->Update();
-        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY || session_->GetCurrentState() == Core::SceneState::TEXT) {
+            playTextAct_->Update();
             boomAct_->Update();
             secretBoardAct_->Update();
             guiAct_->Update();
@@ -62,7 +66,7 @@ namespace Game {
                 session_->SetCurrentState(Core::SceneState::GAMEOVER_WIN);
             }
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
-
+            winAct_->Update();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
             loseAct_->Update();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_HIDE) {
@@ -83,10 +87,11 @@ namespace Game {
         } else if (session_->GetCurrentState() == Core::SceneState::MAIN) {
             mainAct_->Render();
             guiAct_->Render();
-        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
+        } else if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY || session_->GetCurrentState() == Core::SceneState::TEXT) {
             secretBoardAct_->Render();
             boomAct_->Render();
             guiAct_->Render();
+            playTextAct_->Render();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_WIN) {
             winAct_->Render();
         } else if (session_->GetCurrentState() == Core::SceneState::GAMEOVER_LOSE) {
@@ -108,6 +113,8 @@ namespace Game {
     void GameManager::Reset() {
         session_->GetPlayerData()->batteryCount = Core::PLAYER_M_LIVES;
         session_->GetPlayerData()->missionCount = Core::PLAYER_M_MISSION;
+        winAct_->Shutdown();
+        loseAct_->Shutdown();
     }
 }
 

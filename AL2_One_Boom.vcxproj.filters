@@ -77,6 +77,9 @@
     <ClCompile Include="src\Game\LoadingActionImpl.cpp">
       <Filter>src\Game</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\PlayTextActionImpl.cpp">
+      <Filter>src\Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="%KAMATA_ENGINE%\DirectXGame\audio\Audio.h">
@@ -221,6 +224,9 @@
       <Filter>include\Game</Filter>
     </ClInclude>
     <ClInclude Include="include\Game\ILoadingAction.hpp">
+      <Filter>include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Game\IPlayTextAction.hpp">
       <Filter>include\Game</Filter>
     </ClInclude>
   </ItemGroup>

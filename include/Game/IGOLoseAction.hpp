@@ -3,11 +3,11 @@
 #include <vector>
 
 namespace Game {
-    enum TEXTS{
-        TEXT01,
-        TEXT02,
-        TEXT03,
-        COUNT,
+    enum LOSE_TEXTS{
+        L_TEXT01,
+        L_TEXT02,
+        L_TEXT03,
+        L_COUNT,
     };
     class IGOLoseAction : public IAction {
     public:
@@ -26,9 +26,9 @@ namespace Game {
         Core::AnimeHandle loseTL03_;
 
         int switchTime_ = 5;
-        int textCount_ = TEXTS::TEXT01;
+        int textCount_ = LOSE_TEXTS::L_TEXT01;
 
-        const int timeLineCount_ = TEXTS::COUNT;
+        const int timeLineCount_ = LOSE_TEXTS::L_COUNT;
 
         
     };

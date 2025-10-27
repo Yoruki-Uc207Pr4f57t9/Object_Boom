@@ -23,6 +23,7 @@ namespace Component {
                 Novice::DrawBox(x, y, w, h, 0, 0xFFFFFFFF, kFillModeWireFrame);
                 Novice::ScreenPrintf(x + 10, y + h / 2 - 8, "%s", name_.c_str());
             } else {
+                Novice::DrawBox(x, y, (int)cursorHandle_.size.x, (int)cursorHandle_.size.y, 0, 0x404040cc, kFillModeSolid);
                 Novice::DrawSpriteRect(
                     x, y,
                     (int)cursorHandle_.posi.x, (int)cursorHandle_.posi.y,

@@ -13,6 +13,7 @@
 #include "Game/IGOLoseAction.hpp"
 #include "Game/IGOHideAction.hpp"
 #include "Game/ILoadingAction.hpp"
+#include "Game/IPlayTextAction.hpp"
 #include "Game/GameSession.hpp"
 
 namespace Game {
@@ -25,6 +26,7 @@ namespace Game {
             winAct_ = new Game::IGOWinAction(session);
             loseAct_ = new Game::IGOLoseAction(session);
             hideAct_ = new Game::IGOHideAction(session);
+            playTextAct_ = new Game::IPlayTextAction(session);
 
             loadingAct_ = new Game::ILoadingAction(session);
 
@@ -51,6 +53,8 @@ namespace Game {
         Game::GameSession* session_{ nullptr };
         Game::IBoomAction* boomAct_{ nullptr };
         Game::ISecretBoardAction* secretBoardAct_{ nullptr };
+        Game::IPlayTextAction* playTextAct_{ nullptr };
+
         Game::IGUIAction* guiAct_{ nullptr };
         Game::IMainAction* mainAct_{ nullptr };
         Game::IGOWinAction* winAct_{ nullptr };

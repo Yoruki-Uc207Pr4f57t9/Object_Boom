@@ -28,8 +28,9 @@ namespace Core {
     // シーンの状態を表す列挙型
     enum class SceneState {
         MAIN,
-        GAMEPLAY,
         PAUSE,
+        TEXT,
+        GAMEPLAY,
         GAMEOVER_WIN,
         GAMEOVER_LOSE,
         GAMEOVER_HIDE,

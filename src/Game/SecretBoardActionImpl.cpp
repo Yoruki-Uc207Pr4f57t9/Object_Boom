@@ -30,9 +30,13 @@ namespace Game {
             session_->GetPlayerData()->batteryCount--;
             session_->ResetInputLock();
         } */
-        if (kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0 && session_->DetectInputLock()) {
+        if (!session_->DetectInputLock() && kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0) {
+            session_->ResetInputLock();
             session_->GetPlayerData()->batteryCount--;
-            session_->DetectInputLock();
+        }
+        // Test
+        if (kb.keys[DIK_P] == 0 && kb.preKeys[DIK_P] != 0) {
+            session_->GetPlayerData()->missionCount--;
         }
     }
 

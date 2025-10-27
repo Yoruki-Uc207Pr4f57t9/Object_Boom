@@ -13,14 +13,16 @@ namespace Game {
     }
     void IMainAction::Input(KeyBoard& kb, Mouse& mouse) {
         mouse;
-        if (kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0) {
+        if (!session_->DetectInputLock() && kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0) {
+            session_->ResetInputLock();
             if (selectIndex_ == Core::RLModel::RIGHT) {
-                session_->SetCurrentState(Core::SceneState::GAMEPLAY);
+                session_->SetCurrentState(Core::SceneState::TEXT);
                 session_->SetLoading(true);
             } else {
                 session_->SetCurrentState(Core::SceneState::GAMEOVER_HIDE);
                 session_->SetLoading(true);
             }
+            
         }
     }
     void IMainAction::Update() {

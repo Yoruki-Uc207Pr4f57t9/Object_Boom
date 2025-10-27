@@ -20,6 +20,7 @@ namespace Core {
         sBFlagRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/SecretBoard_Flag[770x810].png"), 1, { 770, 810 }, 0.36f);
 
         mobilePowerRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Power[128x15][32x15_4].png"), 4, { 128, 15 }, 1);
+        lineRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Line[240x100][80x100_3].png"), 3, { 240, 100 }, 1);
 
 
         mainFlagRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Flag[70x78].png"), 1, { 70, 78 }, 0.3f);
@@ -45,10 +46,10 @@ namespace Core {
         playerTL03Text02Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_03=Player_Text_02[190x30].png"), 1, { 190,30 }, 1.f);
         evilTL04Text02Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_04=Evil_Text_02[182x70].png"), 1, { 182,70 }, 1.f);
         playerTL05Text03Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_05=Player_Text_03[190x30].png"), 1, { 190,30 }, 1.f);
-        evilTL06Text03Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_06=Evil_Text_03[229x70].png"), 1, { 229,70 }, 1.f);
+        evilTL06Text03Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_06=Evil_Text_03[203x93].png"), 1, { 203,93 }, 1.f);
         playerTL07Text04Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_07=Player_Text_04[50x30].png"), 1, { 50,30 }, 1.f);
         evilTL08Text04Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_08=Evil_Text_04[184x70].png"), 1, { 184,70 }, 1.f);
-        evilTL09Text05Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_09=Evil_Text_05[233x93].png"), 1, { 233,93 }, 1.f);
+        evilTL09Text05Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_09=Evil_Text_05[182x116].png"), 1, { 182,116 }, 1.f);
         playerTL10Text05Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_10=Player_Text_05[450x30].png"), 1, { 450,30 }, 1.f);
         evilTL11Text06Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_11=Evil_Text_06[199x93].png"), 1, { 199,93 }, 1.f);
     }
@@ -97,6 +98,10 @@ namespace Core {
 
     AnimeHandle ResourceManager::MobilePowerHandle(int num) {
         return AnimeHandle({(float)(num * 32), 0.0f}, { 32, 15 }, mobilePowerRes_);
+    };
+
+    AnimeHandle ResourceManager::LineHandle(int num) {
+        return AnimeHandle({ (float)(num * 80), 0.0f }, { 80, 100 }, lineRes_);
     };
 
     AnimeHandle ResourceManager::MainFlagHandle() {
