@@ -2,6 +2,7 @@
 #include "Game/IAction.hpp"
 #include <vector>
 
+
 namespace Game {
     
     class ISecretBoardAction : public IAction {
@@ -17,6 +18,8 @@ namespace Game {
 
     private:
         Game::GameSession* session_{ nullptr };
+
+
         int pushCooldown_{ 0 };
         Entity::SecretBoard secretBoard_;
 

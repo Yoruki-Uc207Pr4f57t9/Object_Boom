@@ -14,6 +14,10 @@ namespace Core {
     constexpr int PLAYER_M_LIVES = 4;  // プレイヤーの初期バッテリー数 (4枚絵)
     constexpr int PLAYER_M_MISSION = 3;
 
+    constexpr int PW_ROW = 3;
+    constexpr int PW_CELL = 5;
+
+
     enum MouseCursor {
         HIDE_MOUSE = 0,
         SHOW_MOUSE = 1,

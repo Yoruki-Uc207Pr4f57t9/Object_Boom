@@ -44,6 +44,7 @@ namespace Core {
         // Anime
         AnimeHandle BoomHandle();
         AnimeHandle NumberHandle(int num); // 0~9
+        AnimeHandle NumberPWHandle(int num); // 0~9
         AnimeHandle SeparatorHandle(); // :
 
         AnimeHandle MobileBGHandle();
@@ -100,6 +101,7 @@ namespace Core {
     private:
         AnimeResource boomRes_;
         AnimeResource numberRes_;
+        AnimeResource numberPWRes_;
         AnimeResource separatorRes_;
 
         AnimeResource mobileBGRes_;

@@ -15,6 +15,8 @@
 #include "Game/ILoadingAction.hpp"
 #include "Game/IPlayTextAction.hpp"
 #include "Game/GameSession.hpp"
+#include <random>
+
 
 namespace Game {
 
@@ -33,7 +35,6 @@ namespace Game {
             guiAct_ = new Game::IGUIAction(session);
             boomAct_ = new Game::IBoomAction(session);
             secretBoardAct_ = new Game::ISecretBoardAction(session);
-            
         }
 
         ~GameManager() {
@@ -50,6 +51,9 @@ namespace Game {
         void Shutdown() ;
 
     private:
+
+
+
         Game::GameSession* session_{ nullptr };
         Game::IBoomAction* boomAct_{ nullptr };
         Game::ISecretBoardAction* secretBoardAct_{ nullptr };

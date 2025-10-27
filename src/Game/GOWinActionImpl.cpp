@@ -66,7 +66,6 @@ namespace Game {
 
     }
     void IGOWinAction::Shutdown() {
-
         textCount_ = WIN_TEXTS::W_TEXT01;
     }
 }

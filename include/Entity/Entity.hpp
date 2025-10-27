@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Core/Math.hpp"
 #include "Core/ResourceManager.hpp"
+#include <vector>
 
 namespace Entity {
 
@@ -36,6 +37,9 @@ namespace Entity {
     public:
         int batteryCount = 0;
         int missionCount = 0;
+
+        std::vector<std::vector<int>> keychains;
+        Core::Vector2 passwordIndex;
     };
 
     enum class EffectType {

@@ -8,6 +8,7 @@ namespace Core {
     void ResourceManager::LoadAll() {
         boomRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Boom[815x360].png"), 1, { 815, 360 }, 1);
         numberRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Number[430x74][43x74_10].png"), 10, { 430, 74 }, 1);
+        numberPWRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Passwd[270x30][27x30_10].png"), 10, { 270, 30 }, 1);
         separatorRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Separator[17x74].png"), 1, { 17, 74 }, 1);
 
         mobileBGRes_ = AnimeResource(Novice::LoadTexture("./Assets/Images/Mobile[480x720].png"), 1,{480, 720}, 1);
@@ -63,6 +64,13 @@ namespace Core {
             throw std::out_of_range("NumberHandle: num must be between 0 and 9");
         }
         return AnimeHandle({ (float)(num * 43), 0.0f }, { 43 , 74 }, numberRes_);
+    }
+
+    AnimeHandle ResourceManager::NumberPWHandle(int num) {
+        if (num < 0 || num > 9) {
+            throw std::out_of_range("NumberHandle: num must be between 0 and 9");
+        }
+        return AnimeHandle({ (float)(num * 27), 0.0f }, { 27, 30 }, numberPWRes_);
     }
 
     AnimeHandle ResourceManager::SeparatorHandle() {

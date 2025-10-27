@@ -1,4 +1,5 @@
 ﻿#include "Game/IBoomAction.hpp"
+#include <vector>
 #include <Novice.h>
 
 namespace Game {
@@ -48,7 +49,6 @@ namespace Game {
     // 更新
     void IBoomAction::Update() {
         countdownTimer_.UpdateByFrames(1, 60.0f);
-
     }
 
     // 描画
@@ -58,6 +58,16 @@ namespace Game {
             boom_.boomAnime_.resource.textureHandle, boom_.animeScale, boom_.animeScale, 0, WHITE);
 
         countdownTimer_.Render();
+        if (session_->GetCurrentState() == Core::SceneState::GAMEPLAY) {
+            std::vector<int> rdPW = session_->GetPlayerData()->keychains.at((int)session_->GetPlayerData()->passwordIndex.y);
+            for (int i = 0; i < rdPW.size(); i++) {
+                auto num = session_->GetResources()->NumberPWHandle(rdPW.at(i));
+                Novice::DrawSpriteRect((int)(boom_.position.x + (num.size.x * i) + 100), (int)(boom_.position.y + 150),
+                    (int)num.posi.x, (int)num.posi.y, (int)num.size.x, (int)num.size.y,
+                    num.resource.textureHandle,
+                    0.1f, 1.f, 0, WHITE);
+            }
+        }
     }
 
     // 終了

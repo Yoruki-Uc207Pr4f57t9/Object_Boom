@@ -2,7 +2,7 @@
 #include <Novice.h>
 
 namespace Game {
-
+    
 
     // 初期化
     void ISecretBoardAction::Init() {
@@ -32,7 +32,21 @@ namespace Game {
         } */
         if (!session_->DetectInputLock() && kb.keys[DIK_SPACE] == 0 && kb.preKeys[DIK_SPACE] != 0) {
             session_->ResetInputLock();
-            session_->GetPlayerData()->batteryCount--;
+            //session_->GetPlayerData()->batteryCount--;
+            int y = (int)session_->GetPlayerData()->passwordIndex.y;
+            int x = (int)session_->GetPlayerData()->passwordIndex.x;
+            int realPW = session_->GetPlayerData()->keychains.at(y).at(x);
+            if (realPW == secretBoard_.timeValue) {
+                session_->GetPlayerData()->passwordIndex.x++;
+                if (session_->GetPlayerData()->passwordIndex.x >= Core::PW_CELL) {
+                    session_->GetPlayerData()->passwordIndex.x = 0;
+                    session_->GetPlayerData()->passwordIndex.y++;
+                    session_->GetPlayerData()->missionCount--;
+                }
+            } else {
+                session_->GetPlayerData()->batteryCount--;
+            }
+
         }
         // Test
         if (kb.keys[DIK_P] == 0 && kb.preKeys[DIK_P] != 0) {

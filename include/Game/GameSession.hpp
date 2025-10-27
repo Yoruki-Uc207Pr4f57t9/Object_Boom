@@ -4,6 +4,7 @@
 #include "Entity/Entity.hpp"
 
 
+
 namespace Game {
 
     class GameSession {
@@ -58,7 +59,9 @@ namespace Game {
         KeyBoard                    keyboard_;
 
         Entity::PlayerData          playerData_;
+        
 
+        
         bool                        loading_;
         Core::SceneState            currentState_;
     };

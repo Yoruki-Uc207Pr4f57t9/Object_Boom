@@ -76,7 +76,6 @@ namespace Game {
 
     }
     void IPlayTextAction::Shutdown() {
-
         textCount_ = PLAY_TEXTS::P_TEXT01;
     }
 }

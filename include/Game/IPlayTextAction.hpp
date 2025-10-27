@@ -25,6 +25,9 @@ namespace Game {
         void Update();
         void Render();
         void Shutdown();
+        int GetTextCount() {
+            return textCount_;
+        }
 
     private:
         Game::GameSession* session_{ nullptr };
