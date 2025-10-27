@@ -21,6 +21,7 @@ namespace Game {
         secretBoard_.timeValue = 0;
         secretBoard_.position = { (Core::kWindowWidth / 2 ), (Core::kWindowHeight / 2 + (sizePWY - (sizePWY / 4))) };
         RotateFunc_();
+        secretBoard_.timeSound_ = session_->GetResources()->ClockHandle();
     }
 
     // 入力
@@ -61,6 +62,7 @@ namespace Game {
     void ISecretBoardAction::Update() {
         if (session_->GetGameSetting()->GetCurrentFrame() % 60 == 0) {
             secretBoard_.timeValue++;
+            Novice::PlayAudio(secretBoard_.timeSound_.resource.handle, secretBoard_.timeSound_.resource.isLoop, secretBoard_.timeSound_.resource.volume);
         }
 
         if (secretBoard_.timeValue > 9) {

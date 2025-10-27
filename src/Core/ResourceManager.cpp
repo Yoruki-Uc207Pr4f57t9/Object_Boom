@@ -55,7 +55,11 @@ namespace Core {
         evilTL11Text06Res_ = AnimeResource(Novice::LoadTexture("./Assets/Text/TL_11=Evil_Text_06[199x93].png"), 1, { 199,93 }, 1.f);
 
         //audio
-        timeRes_ = AudioResource(Novice::LoadAudio(""));
+        timeRes_ = AudioResource(Novice::LoadAudio("./Assets/Audio/clock.wav"), false, false, 0.1f);
+    }
+
+    AudioHandle ResourceManager::ClockHandle() {
+        return AudioHandle(timeRes_);
     }
 
     AnimeHandle ResourceManager::BoomHandle() {
