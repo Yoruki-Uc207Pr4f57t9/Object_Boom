@@ -27,6 +27,8 @@
 #### 音
 ##### 爆発音_1
 [countdown.wav](./Doc/Audio/countdown.wav)
+[clock.wav](./Doc/Audio/clock.wav)
+
 
 ### 素材処理
 #### 画像編集ソフト
