@@ -113,10 +113,17 @@ namespace Game {
     void GameManager::Reset() {
         session_->GetPlayerData()->batteryCount = Core::PLAYER_M_LIVES;
         session_->GetPlayerData()->missionCount = Core::PLAYER_M_MISSION;
+        session_->GetPlayerData()->passwordIndex = { 0, 0 };
         boomAct_->Shutdown();
+        boomAct_->Init();
+        secretBoardAct_->Shutdown();
+        secretBoardAct_->Init();
         winAct_->Shutdown();
+        winAct_->Init();
         loseAct_->Shutdown();
-        //playTextAct_->Shutdown();
+        loseAct_->Init();
+        playTextAct_->Shutdown();
+        playTextAct_->Init();
     }
 }
 
